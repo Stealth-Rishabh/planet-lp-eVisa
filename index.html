@@ -107,25 +107,35 @@
         background: rgba(255, 255, 255, 0.1);
         backdrop-filter: blur(10px);
         -webkit-backdrop-filter: blur(10px);
-        border-radius: 20px;
+        border-radius: clamp(15px, 4vw, 20px);
         border: 1px solid rgba(255, 255, 255, 0.2);
-        padding: 30px;
+        padding: clamp(20px, 5vw, 30px);
         color: white;
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+        transition: all 0.3s ease;
+        overflow: hidden;
+        scale: 0.8;
       }
       .glass-form h3 {
         text-align: center;
-        margin-bottom: 20px;
+        margin-bottom: clamp(15px, 3vw, 20px);
+        font-size: clamp(18px, 4vw, 24px);
       }
       .glass-form .form-group {
-        margin-bottom: 20px;
+        margin-bottom: clamp(15px, 3vw, 20px);
       }
       .glass-form .form-control {
         background: rgba(255, 255, 255, 0.05);
         border: 1px solid rgba(255, 255, 255, 0.2);
         color: white;
-        border-radius: 10px;
-        padding: 15px 25px;
-        height: 55px;
+        border-radius: clamp(8px, 2vw, 10px);
+        padding: clamp(12px 18px, 3vw 4vw, 15px 25px);
+        height: clamp(45px, 10vw, 55px);
+        width: 100%;
+        font-size: clamp(14px, 3vw, 16px);
+        box-sizing: border-box;
       }
       .glass-form select.form-control {
         -webkit-appearance: none;
@@ -147,9 +157,23 @@
         color: rgba(255, 255, 255, 0.7);
       }
       .glass-form .btn {
-        width: auto;
-        border-radius: 10px;
-        padding: 15px 40px;
+        width: 100%;
+        border-radius: clamp(8px, 2vw, 10px);
+        padding: clamp(12px 20px, 3vw 5vw, 15px 40px);
+        font-size: clamp(14px, 3vw, 16px);
+        min-height: clamp(45px, 8vw, 50px);
+        margin-top: clamp(10px, 2vw, 15px);
+      }
+
+      /* Form-specific responsive styles */
+      @media (max-width: 1200px) {
+        .glass-form {
+          max-width: 95%;
+          margin: 0 auto;
+        }
+        .glass-form .form-control {
+          height: clamp(48px, 8vw, 52px);
+        }
       }
 
       @media (max-width: 991px) {
@@ -174,6 +198,17 @@
         .hero__bottom p {
           margin-left: auto;
           margin-right: auto;
+        }
+        .glass-form {
+          padding: clamp(25px, 6vw, 35px);
+          margin-top: 30px;
+        }
+        .glass-form h3 {
+          font-size: clamp(20px, 5vw, 26px);
+        }
+        .glass-form .form-control {
+          height: clamp(48px, 9vw, 55px);
+          font-size: clamp(15px, 3.5vw, 17px);
         }
       }
 
@@ -227,6 +262,88 @@
           padding: 0 !important;
           box-shadow: none !important;
         }
+
+        /* Enhanced form responsiveness for mobile */
+        .glass-form {
+          padding: clamp(20px, 5vw, 25px);
+          margin: 20px auto 0;
+          max-width: 100%;
+          border-radius: 15px;
+        }
+        .glass-form h3 {
+          font-size: clamp(18px, 5vw, 22px);
+          margin-bottom: 15px;
+        }
+        .glass-form .form-group {
+          margin-bottom: 15px;
+        }
+        .glass-form .form-control {
+          height: clamp(45px, 12vw, 50px);
+          padding: clamp(12px 15px, 3vw 4vw, 14px 18px);
+          font-size: clamp(14px, 4vw, 16px);
+          border-radius: 8px;
+        }
+        .glass-form .btn {
+          padding: clamp(12px 15px, 3vw 4vw, 14px 20px);
+          font-size: clamp(14px, 4vw, 16px);
+          min-height: clamp(45px, 12vw, 50px);
+          border-radius: 8px;
+        }
+      }
+
+      /* Extra small devices */
+      @media (max-width: 480px) {
+        .glass-form {
+          padding: 15px;
+          margin: 15px 10px 0;
+          border-radius: 12px;
+        }
+        .glass-form h3 {
+          font-size: 18px;
+          margin-bottom: 12px;
+        }
+        .glass-form .form-group {
+          margin-bottom: 12px;
+        }
+        .glass-form .form-control {
+          height: 42px;
+          padding: 10px 12px;
+          font-size: 14px;
+          border-radius: 6px;
+        }
+        .glass-form .btn {
+          padding: 12px 15px;
+          font-size: 14px;
+          min-height: 42px;
+          border-radius: 6px;
+          margin-top: 8px;
+        }
+      }
+
+      /* Large screens optimization */
+      @media (min-width: 1400px) {
+        .glass-form {
+          max-width: 450px;
+          padding: 35px;
+        }
+        .glass-form h3 {
+          font-size: 26px;
+          margin-bottom: 25px;
+        }
+        .glass-form .form-control {
+          height: 58px;
+          padding: 16px 28px;
+          font-size: 17px;
+        }
+        .glass-form .btn {
+          padding: 16px 45px;
+          font-size: 17px;
+          min-height: 52px;
+        }
+      }
+
+      .swiper-container {
+        margin-top: 2rem;
       }
 
       .stats-slider.swiper-container {
@@ -461,10 +578,366 @@
         height: 100%;
       }
 
+      .xb-program-item .xb-item--img {
+        overflow: hidden;
+        border-radius: 10px;
+        position: relative;
+      }
+
       .xb-program-item .xb-item--img img {
         width: 100%;
         height: 250px;
         object-fit: cover;
+        transition: transform 0.4s ease-in-out;
+        border-radius: 10px;
+      }
+
+      .xb-program-item:hover .xb-item--img img {
+        transform: scale(1.1);
+      }
+
+      .xb-program-item {
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      .xb-program-item:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+      }
+
+      /* Brand logos styling - Override main.css opacity settings */
+      .brand-slider .xb-swiper-slide a {
+        opacity: 1 !important;
+        filter: none !important;
+      }
+
+      .brand-slider .xb-swiper-slide {
+        opacity: 1 !important;
+        filter: none !important;
+        height: 80px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .brand-slider .xb-swiper-slide img {
+        opacity: 1 !important;
+        filter: none !important;
+        transition: transform 0.3s ease;
+        width: 100%;
+        height: 60px;
+        object-fit: contain;
+        max-width: 100%;
+      }
+
+      .brand-slider .swiper-slide {
+        opacity: 1 !important;
+        filter: none !important;
+        height: 80px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .brand-slider .swiper-slide a {
+        opacity: 1 !important;
+        filter: none !important;
+      }
+
+      .brand-slider .swiper-slide img {
+        opacity: 1 !important;
+        filter: none !important;
+        height: 60px;
+        object-fit: contain;
+        max-width: 100%;
+      }
+
+      .brand-slider .xb-swiper-slide:hover img {
+        transform: scale(1.1);
+      }
+
+      /* Premium Professional Testimonials Styling */
+      .enhanced-testimonial {
+        background: linear-gradient(
+          145deg,
+          #ffffff 0%,
+          #f8fafc 100%
+        ) !important;
+        border-radius: 24px !important;
+        padding: 40px 35px !important;
+        box-shadow: 0 20px 60px rgba(0, 0, 60, 0.08),
+          0 8px 25px rgba(0, 0, 0, 0.04), inset 0 1px 0 rgba(255, 255, 255, 0.8) !important;
+        border: 1px solid rgba(255, 255, 255, 0.9) !important;
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+        height: 100% !important;
+        position: relative !important;
+        overflow: hidden !important;
+        cursor: pointer !important;
+      }
+
+      /* Animated gradient background */
+      .enhanced-testimonial::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(42, 82, 152, 0.03),
+          transparent
+        );
+        transition: left 0.6s ease;
+        z-index: 1;
+      }
+
+      .enhanced-testimonial:hover::before {
+        left: 100%;
+      }
+
+      /* Cool hover effects */
+      .enhanced-testimonial:hover {
+        transform: translateY(-12px) scale(1.02) !important;
+        box-shadow: 0 35px 80px rgba(0, 0, 60, 0.15),
+          0 15px 40px rgba(42, 82, 152, 0.1),
+          inset 0 1px 0 rgba(255, 255, 255, 1) !important;
+        border-color: rgba(42, 82, 152, 0.2) !important;
+      }
+
+      /* Professional layout */
+      .testimonial-layout {
+        display: flex !important;
+        align-items: flex-start !important;
+        text-align: left !important;
+        position: relative !important;
+        z-index: 2 !important;
+        gap: 20px !important;
+      }
+
+      .testimonial-image-container {
+        flex-shrink: 0 !important;
+        position: relative !important;
+      }
+
+      .testimonial-image-container img {
+        width: 70px !important;
+        height: 70px !important;
+        border-radius: 16px !important;
+        object-fit: cover !important;
+        border: 3px solid #ffffff !important;
+        box-shadow: 0 12px 30px rgba(42, 82, 152, 0.15),
+          0 4px 12px rgba(0, 0, 0, 0.08) !important;
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+        position: relative !important;
+        z-index: 3 !important;
+      }
+
+      .enhanced-testimonial:hover .testimonial-image-container img {
+        transform: scale(1.1) rotate(2deg) !important;
+        box-shadow: 0 20px 45px rgba(42, 82, 152, 0.25),
+          0 8px 20px rgba(0, 0, 0, 0.12) !important;
+        border-color: #2a5298 !important;
+      }
+
+      /* Content styling */
+      .testimonial-content {
+        flex: 1 !important;
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 12px !important;
+      }
+
+      .testimonial-quote {
+        font-size: 16px !important;
+        line-height: 1.7 !important;
+        color: #374151 !important;
+        font-weight: 400 !important;
+        position: relative !important;
+        padding-left: 20px !important;
+        font-style: italic !important;
+        margin-bottom: 16px !important;
+      }
+
+      .testimonial-quote::before {
+        content: '"';
+        position: absolute;
+        left: 0;
+        top: -8px;
+        font-size: 36px;
+        color: #2a5298;
+        font-family: Georgia, serif;
+        opacity: 0.6;
+        line-height: 1;
+      }
+
+      .testimonial-author {
+        font-size: 18px !important;
+        font-weight: 700 !important;
+        color: #1f2937 !important;
+        margin-bottom: 4px !important;
+        transition: color 0.3s ease !important;
+      }
+
+      .enhanced-testimonial:hover .testimonial-author {
+        color: #2a5298 !important;
+      }
+
+      .testimonial-designation {
+        font-size: 14px !important;
+        color: #6b7280 !important;
+        font-weight: 500 !important;
+        display: flex !important;
+        align-items: center !important;
+        gap: 8px !important;
+      }
+
+      .testimonial-designation::before {
+        content: "";
+        width: 4px;
+        height: 4px;
+        background: #2a5298;
+        border-radius: 50%;
+        display: inline-block;
+      }
+
+      /* Star rating effect */
+      .testimonial-rating {
+        display: flex !important;
+        gap: 2px !important;
+        margin-top: 8px !important;
+        opacity: 0 !important;
+        transform: translateY(10px) !important;
+        transition: all 0.4s ease 0.1s !important;
+      }
+
+      .enhanced-testimonial:hover .testimonial-rating {
+        opacity: 1 !important;
+        transform: translateY(0) !important;
+      }
+
+      .testimonial-star {
+        width: 16px;
+        height: 16px;
+        color: #fbbf24;
+        fill: currentColor;
+      }
+
+      /* Professional section background */
+      .testimonial.o-hidden {
+        background: linear-gradient(
+          135deg,
+          #f8fafc 0%,
+          #e2e8f0 100%
+        ) !important;
+        position: relative !important;
+        overflow: hidden !important;
+      }
+
+      .testimonial.o-hidden::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-image: radial-gradient(
+            circle at 25% 25%,
+            rgba(42, 82, 152, 0.03) 0%,
+            transparent 70%
+          ),
+          radial-gradient(
+            circle at 75% 75%,
+            rgba(154, 210, 255, 0.03) 0%,
+            transparent 70%
+          );
+        pointer-events: none;
+        z-index: 0;
+      }
+
+      /* Enhanced navigation */
+      .cr-tesmonial-btn .cr-tes-btn {
+        background: linear-gradient(
+          145deg,
+          #ffffff 0%,
+          #f1f5f9 100%
+        ) !important;
+        border-radius: 50% !important;
+        width: 56px !important;
+        height: 56px !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08) !important;
+        border: 1px solid rgba(255, 255, 255, 0.8) !important;
+        cursor: pointer !important;
+      }
+
+      .cr-tesmonial-btn .cr-tes-btn:hover {
+        background: linear-gradient(
+          145deg,
+          #2a5298 0%,
+          #1e3a8a 100%
+        ) !important;
+        transform: scale(1.1) translateY(-2px) !important;
+        box-shadow: 0 16px 40px rgba(42, 82, 152, 0.25) !important;
+        border-color: #2a5298 !important;
+      }
+
+      .cr-tesmonial-btn .cr-tes-btn:hover svg path {
+        fill: #ffffff !important;
+      }
+
+      /* Mobile optimizations */
+      @media (max-width: 768px) {
+        .enhanced-testimonial {
+          padding: 28px 24px !important;
+          margin: 12px !important;
+        }
+
+        .testimonial-layout {
+          flex-direction: column !important;
+          align-items: center !important;
+          text-align: center !important;
+          gap: 16px !important;
+        }
+
+        .testimonial-image-container img {
+          width: 64px !important;
+          height: 64px !important;
+        }
+
+        .testimonial-quote {
+          font-size: 15px !important;
+          padding-left: 16px !important;
+        }
+
+        .testimonial-author {
+          font-size: 17px !important;
+        }
+
+        .testimonial-designation {
+          justify-content: center !important;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .enhanced-testimonial {
+          padding: 24px 20px !important;
+        }
+
+        .testimonial-image-container img {
+          width: 56px !important;
+          height: 56px !important;
+        }
+
+        .testimonial-quote {
+          font-size: 14px !important;
+          padding-left: 12px !important;
+        }
       }
     </style>
   </head>
@@ -531,22 +1004,26 @@
                     data-wow-delay="200ms"
                   >
                     <div class="hero-stat">
-                      <h4>26+</h4>
+                      <h4 class="counter" data-target="26">0+</h4>
                       <p>Years of Experience</p>
                     </div>
                     <div class="hero-stat">
-                      <h4>350+</h4>
+                      <h4 class="counter" data-target="350">0+</h4>
                       <p>Partner Universities</p>
                     </div>
                     <div class="hero-stat">
-                      <h4>98%</h4>
+                      <h4 class="counter" data-target="98">0%</h4>
                       <p>Visa Success Rate</p>
                     </div>
                   </div>
                 </div>
               </div>
               <div class="col-lg-5">
-                <div class="glass-form wow fadeInRight" data-wow-delay="400ms">
+                <div
+                  class="glass-form wow fadeInRight"
+                  data-wow-delay="400ms"
+                  style="transform: scale(1); transform-origin: center"
+                >
                   <h3 style="color: white">Request a Consultation</h3>
                   <form id="consultation-form" novalidate>
                     <div class="form-group">
@@ -699,15 +1176,15 @@
                   <div class="divider"></div>
                   <div class="stats-container">
                     <div class="stat-item">
-                      <h4>25+</h4>
+                      <h4 class="counter" data-target="26">0+</h4>
                       <p>Years</p>
                     </div>
                     <div class="stat-item">
-                      <h4>350+</h4>
+                      <h4 class="counter" data-target="350">0+</h4>
                       <p>Universities</p>
                     </div>
                     <div class="stat-item">
-                      <h4>10000+</h4>
+                      <h4 class="counter" data-target="10000">0+</h4>
                       <p>Students</p>
                     </div>
                   </div>
@@ -720,7 +1197,7 @@
               <div class="col-lg-6">
                 <div class="about-planet-image">
                   <img
-                    src="https://studyabroad.planeteducation.info/assets/AboutUs-Cz5xPYd1.webp"
+                    src="https://images.unsplash.com/photo-1682527896313-42bf68427242?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                     alt="Student Image"
                     class="img-fluid"
                   />
@@ -790,22 +1267,8 @@
         <!-- about planet education end -->
 
         <!-- feature start -->
-        <section class="feature pt-10 pb-30" data-bg-color="#f5fbff">
+        <section class="feature pb-30" data-bg-color="#f5fbff">
           <div class="container">
-            <div class="sec-title style-2 style-3 text-center mb-40">
-              <span class="sec-title--sub"
-                ><img src="assets/img/icon/h_star.png" alt="" />Stats<img
-                  src="assets/img/icon/h_star.png"
-                  alt=""
-              /></span>
-              <h3
-                class="sec-title--heading wow fadeInUp"
-                data-wow-delay="0ms"
-                data-wow-duration=".6s"
-              >
-                Our Stats
-              </h3>
-            </div>
             <div class="cr-feture ul_li_between stats-section-container">
               <div class="cr-feature-wrap">
                 <div class="cr-feature-item">
@@ -817,7 +1280,9 @@
                       />
                     </div>
                     <div class="xb-item--holder">
-                      <h2 class="xb-item--title">35000+</h2>
+                      <h2 class="xb-item--title counter" data-target="35000">
+                        0+
+                      </h2>
                       <p class="xb-item--content">Dreams Launched</p>
                     </div>
                   </div>
@@ -831,7 +1296,9 @@
                       />
                     </div>
                     <div class="xb-item--holder">
-                      <h2 class="xb-item--title">98%</h2>
+                      <h2 class="xb-item--title counter" data-target="98">
+                        0%
+                      </h2>
                       <p class="xb-item--content">Visa Success Rate</p>
                     </div>
                   </div>
@@ -847,7 +1314,9 @@
                       />
                     </div>
                     <div class="xb-item--holder">
-                      <h2 class="xb-item--title">25+</h2>
+                      <h2 class="xb-item--title counter" data-target="25">
+                        0+
+                      </h2>
                       <p class="xb-item--content">Years of Experience</p>
                     </div>
                   </div>
@@ -861,7 +1330,9 @@
                       />
                     </div>
                     <div class="xb-item--holder">
-                      <h2 class="xb-item--title">350+</h2>
+                      <h2 class="xb-item--title counter" data-target="350">
+                        0+
+                      </h2>
                       <p class="xb-item--content">Partner Universities</p>
                     </div>
                   </div>
@@ -877,7 +1348,9 @@
                       />
                     </div>
                     <div class="xb-item--holder">
-                      <h2 class="xb-item--title">25+</h2>
+                      <h2 class="xb-item--title counter" data-target="25">
+                        0+
+                      </h2>
                       <p class="xb-item--content">Offices Worldwide</p>
                     </div>
                   </div>
@@ -891,7 +1364,9 @@
                       />
                     </div>
                     <div class="xb-item--holder">
-                      <h2 class="xb-item--title">10+</h2>
+                      <h2 class="xb-item--title counter" data-target="10">
+                        0+
+                      </h2>
                       <p class="xb-item--content">
                         Years of Experienced faculty
                       </p>
@@ -938,13 +1413,6 @@
                               src="https://images.unsplash.com/photo-1567852701065-b2991a38e34c?q=80&w=1632&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                               alt="University of Sydney"
                             />
-                            <a
-                              class="thm-btn thm-btn--cr-btn sec-btn"
-                              href="contact.html"
-                              >Learn More This
-                              <span
-                                ><i class="fal fa-long-arrow-right"></i></span
-                            ></a>
                           </div>
                           <ul class="list-unstyled ul_li_between">
                             <li>Australia</li>
@@ -978,13 +1446,6 @@
                               src="https://images.unsplash.com/20/cambridge.JPG?q=80&w=1147&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                               alt="Harvard University"
                             />
-                            <a
-                              class="thm-btn thm-btn--cr-btn sec-btn"
-                              href="contact.html"
-                              >Learn More This
-                              <span
-                                ><i class="fal fa-long-arrow-right"></i></span
-                            ></a>
                           </div>
                           <ul class="list-unstyled ul_li_between">
                             <li>USA</li>
@@ -1017,13 +1478,6 @@
                               src="https://images.unsplash.com/photo-1617297296495-4af2290c2b84?q=80&w=1167&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                               alt="Oxford University"
                             />
-                            <a
-                              class="thm-btn thm-btn--cr-btn sec-btn"
-                              href="contact.html"
-                              >Learn More This
-                              <span
-                                ><i class="fal fa-long-arrow-right"></i></span
-                            ></a>
                           </div>
                           <ul class="list-unstyled ul_li_between">
                             <li>UK</li>
@@ -1056,13 +1510,6 @@
                               src="https://images.unsplash.com/photo-1542704792-e30dac463c90?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                               alt="University of Toronto"
                             />
-                            <a
-                              class="thm-btn thm-btn--cr-btn sec-btn"
-                              href="contact.html"
-                              >Learn More This
-                              <span
-                                ><i class="fal fa-long-arrow-right"></i></span
-                            ></a>
                           </div>
                           <ul class="list-unstyled ul_li_between">
                             <li>Canada</li>
@@ -1096,13 +1543,6 @@
                               src="https://theacademicinsights.com/wp-content/uploads/2020/07/University_of_Otago-1024x768.jpg"
                               alt="University of Auckland"
                             />
-                            <a
-                              class="thm-btn thm-btn--cr-btn sec-btn"
-                              href="contact.html"
-                              >Learn More This
-                              <span
-                                ><i class="fal fa-long-arrow-right"></i></span
-                            ></a>
                           </div>
                           <ul class="list-unstyled ul_li_between">
                             <li>New Zealand</li>
@@ -1135,13 +1575,6 @@
                               src="https://images.unsplash.com/photo-1600664356348-10686526af4f?q=80&w=1175&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                               alt="Singapore"
                             />
-                            <a
-                              class="thm-btn thm-btn--cr-btn sec-btn"
-                              href="contact.html"
-                              >Learn More This
-                              <span
-                                ><i class="fal fa-long-arrow-right"></i></span
-                            ></a>
                           </div>
                           <ul class="list-unstyled ul_li_between">
                             <li>Singapore</li>
@@ -1502,7 +1935,7 @@
         <!-- testimonial start -->
         <section
           class="testimonial o-hidden pt-130 pb-100"
-          data-bg-color="#f5fbff"
+          data-bg-color="#f1f5f9"
         >
           <div class="container">
             <div class="sec-title text-center style-2 style-3 mb-60">
@@ -1523,145 +1956,284 @@
               <div class="cr-testtimonial-slider swiper-container">
                 <div class="swiper-wrapper">
                   <div class="swiper-slide">
-                    <div class="cr-testimonial-item">
-                      <img
-                        src="https://studyabroad.planeteducation.info/assets/hemanth-Cm0Ox9-N.jpg"
-                        alt="Hemanth Rajkumar"
-                      />
-                      <div class="xb-item--inner">
-                        <h3
-                          class="xb-item--author"
-                          style="
-                            font-size: 24px;
-                            font-weight: 700;
-                            margin-bottom: 5px;
-                          "
-                        >
-                          Hemanth Rajkumar
-                        </h3>
-                        <span
-                          class="xb-item--desig"
-                          style="
-                            color: #f0c348;
-                            font-size: 14px;
-                            margin-bottom: 15px;
-                            display: inline-block;
-                          "
-                          >UTS, Sydney • Masters in Marketing</span
-                        >
-                        <p class="xb-item--content">
-                          "Planet Education is the right choice for a
-                          hassle-free application with continuous updates. Now,
-                          I'm a student at UTS, Sydney, and all credit goes to
-                          Mr. Vasantosh and his team."
-                        </p>
+                    <div class="cr-testimonial-item enhanced-testimonial">
+                      <div class="testimonial-layout">
+                        <div class="testimonial-image-container">
+                          <img
+                            src="https://studyabroad.planeteducation.info/assets/hemanth-Cm0Ox9-N.jpg"
+                            alt="Hemanth Rajkumar"
+                          />
+                        </div>
+                        <div class="testimonial-content">
+                          <p class="testimonial-quote">
+                            Planet Education is the right choice for a
+                            hassle-free application with continuous updates.
+                            Now, I'm a student at UTS, Sydney, and all credit
+                            goes to Mr. Vasantosh and his team.
+                          </p>
+                          <h3 class="testimonial-author">Hemanth Rajkumar</h3>
+                          <span class="testimonial-designation"
+                            >UTS, Sydney • Masters in Marketing</span
+                          >
+                          <div class="testimonial-rating">
+                            <svg
+                              class="testimonial-star"
+                              viewBox="0 0 20 20"
+                              fill="currentColor"
+                            >
+                              <path
+                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                              />
+                            </svg>
+                            <svg
+                              class="testimonial-star"
+                              viewBox="0 0 20 20"
+                              fill="currentColor"
+                            >
+                              <path
+                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                              />
+                            </svg>
+                            <svg
+                              class="testimonial-star"
+                              viewBox="0 0 20 20"
+                              fill="currentColor"
+                            >
+                              <path
+                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                              />
+                            </svg>
+                            <svg
+                              class="testimonial-star"
+                              viewBox="0 0 20 20"
+                              fill="currentColor"
+                            >
+                              <path
+                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                              />
+                            </svg>
+                            <svg
+                              class="testimonial-star"
+                              viewBox="0 0 20 20"
+                              fill="currentColor"
+                            >
+                              <path
+                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                              />
+                            </svg>
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </div>
                   <div class="swiper-slide">
-                    <div class="cr-testimonial-item cr-tes-item-2">
-                      <img
-                        src="https://studyabroad.planeteducation.info/assets/Prachit-Cju1otva.png"
-                        alt="Prachit Desai"
-                      />
-                      <div class="xb-item--inner">
-                        <h3
-                          class="xb-item--author"
-                          style="
-                            font-size: 24px;
-                            font-weight: 700;
-                            margin-bottom: 5px;
-                          "
-                        >
-                          Prachit Desai
-                        </h3>
-                        <span
-                          class="xb-item--desig"
-                          style="
-                            color: #f0c348;
-                            font-size: 14px;
-                            margin-bottom: 15px;
-                            display: inline-block;
-                          "
-                          >Campus Coventry • BSc Honors in Aviation
-                          Management</span
-                        >
-                        <p class="xb-item--content">
-                          "With the help of the staff, I faced no issues with my
-                          visa and admission for Campus Coventry. I'm proud to
-                          say I got my visa in just 64 hours."
-                        </p>
+                    <div class="cr-testimonial-item enhanced-testimonial">
+                      <div class="testimonial-layout">
+                        <div class="testimonial-image-container">
+                          <img
+                            src="https://studyabroad.planeteducation.info/assets/Prachit-Cju1otva.png"
+                            alt="Prachit Desai"
+                          />
+                        </div>
+                        <div class="testimonial-content">
+                          <p class="testimonial-quote">
+                            With the help of the staff, I faced no issues with
+                            my visa and admission for Campus Coventry. I'm proud
+                            to say I got my visa in just 64 hours.
+                          </p>
+                          <h3 class="testimonial-author">Prachit Desai</h3>
+                          <span class="testimonial-designation"
+                            >Campus Coventry • BSc Honors in Aviation
+                            Management</span
+                          >
+                          <div class="testimonial-rating">
+                            <svg
+                              class="testimonial-star"
+                              viewBox="0 0 20 20"
+                              fill="currentColor"
+                            >
+                              <path
+                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                              />
+                            </svg>
+                            <svg
+                              class="testimonial-star"
+                              viewBox="0 0 20 20"
+                              fill="currentColor"
+                            >
+                              <path
+                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                              />
+                            </svg>
+                            <svg
+                              class="testimonial-star"
+                              viewBox="0 0 20 20"
+                              fill="currentColor"
+                            >
+                              <path
+                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                              />
+                            </svg>
+                            <svg
+                              class="testimonial-star"
+                              viewBox="0 0 20 20"
+                              fill="currentColor"
+                            >
+                              <path
+                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                              />
+                            </svg>
+                            <svg
+                              class="testimonial-star"
+                              viewBox="0 0 20 20"
+                              fill="currentColor"
+                            >
+                              <path
+                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                              />
+                            </svg>
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </div>
                   <div class="swiper-slide">
-                    <div class="cr-testimonial-item cr-tes-item-3">
-                      <img
-                        src="https://studyabroad.planeteducation.info/assets/Smit-DZfNx3LF.png"
-                        alt="Smit Shah"
-                      />
-                      <div class="xb-item--inner">
-                        <h3
-                          class="xb-item--author"
-                          style="
-                            font-size: 24px;
-                            font-weight: 700;
-                            margin-bottom: 5px;
-                          "
-                        >
-                          Smit Shah
-                        </h3>
-                        <span
-                          class="xb-item--desig"
-                          style="
-                            color: #f0c348;
-                            font-size: 14px;
-                            margin-bottom: 15px;
-                            display: inline-block;
-                          "
-                          >Griffith University</span
-                        >
-                        <p class="xb-item--content">
-                          "A friend recommended Planet Education. After their
-                          counseling, I selected Griffith University. The
-                          process was smooth, and I received my COE as planned."
-                        </p>
+                    <div class="cr-testimonial-item enhanced-testimonial">
+                      <div class="testimonial-layout">
+                        <div class="testimonial-image-container">
+                          <img
+                            src="https://studyabroad.planeteducation.info/assets/Smit-DZfNx3LF.png"
+                            alt="Smit Shah"
+                          />
+                        </div>
+                        <div class="testimonial-content">
+                          <p class="testimonial-quote">
+                            A friend recommended Planet Education. After their
+                            counseling, I selected Griffith University. The
+                            process was smooth, and I received my COE as
+                            planned.
+                          </p>
+                          <h3 class="testimonial-author">Smit Shah</h3>
+                          <span class="testimonial-designation"
+                            >Griffith University</span
+                          >
+                          <div class="testimonial-rating">
+                            <svg
+                              class="testimonial-star"
+                              viewBox="0 0 20 20"
+                              fill="currentColor"
+                            >
+                              <path
+                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                              />
+                            </svg>
+                            <svg
+                              class="testimonial-star"
+                              viewBox="0 0 20 20"
+                              fill="currentColor"
+                            >
+                              <path
+                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                              />
+                            </svg>
+                            <svg
+                              class="testimonial-star"
+                              viewBox="0 0 20 20"
+                              fill="currentColor"
+                            >
+                              <path
+                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                              />
+                            </svg>
+                            <svg
+                              class="testimonial-star"
+                              viewBox="0 0 20 20"
+                              fill="currentColor"
+                            >
+                              <path
+                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                              />
+                            </svg>
+                            <svg
+                              class="testimonial-star"
+                              viewBox="0 0 20 20"
+                              fill="currentColor"
+                            >
+                              <path
+                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                              />
+                            </svg>
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </div>
                   <div class="swiper-slide">
-                    <div class="cr-testimonial-item cr-tes-item-2">
-                      <img
-                        src="https://studyabroad.planeteducation.info/assets/Pramash-C2QKSOcC.png"
-                        alt="Pramash Panchal"
-                      />
-                      <div class="xb-item--inner">
-                        <h3
-                          class="xb-item--author"
-                          style="
-                            font-size: 24px;
-                            font-weight: 700;
-                            margin-bottom: 5px;
-                          "
-                        >
-                          Pramash Panchal
-                        </h3>
-                        <span
-                          class="xb-item--desig"
-                          style="
-                            color: #f0c348;
-                            font-size: 14px;
-                            margin-bottom: 15px;
-                            display: inline-block;
-                          "
-                          >Canada</span
-                        >
-                        <p class="xb-item--content">
-                          "Thanks to the team's guidance, I got my admission in
-                          Canada. I found Planet Education to be the best and
-                          most helpful consultancy. I received my visa in just
-                          15 days!"
-                        </p>
+                    <div class="cr-testimonial-item enhanced-testimonial">
+                      <div class="testimonial-layout">
+                        <div class="testimonial-image-container">
+                          <img
+                            src="https://studyabroad.planeteducation.info/assets/Pramash-C2QKSOcC.png"
+                            alt="Pramash Panchal"
+                          />
+                        </div>
+                        <div class="testimonial-content">
+                          <p class="testimonial-quote">
+                            Thanks to the team's guidance, I got my admission in
+                            Canada. I found Planet Education to be the best and
+                            most helpful consultancy. I received my visa in just
+                            15 days!
+                          </p>
+                          <h3 class="testimonial-author">Pramash Panchal</h3>
+                          <span class="testimonial-designation">Canada</span>
+                          <div class="testimonial-rating">
+                            <svg
+                              class="testimonial-star"
+                              viewBox="0 0 20 20"
+                              fill="currentColor"
+                            >
+                              <path
+                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                              />
+                            </svg>
+                            <svg
+                              class="testimonial-star"
+                              viewBox="0 0 20 20"
+                              fill="currentColor"
+                            >
+                              <path
+                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                              />
+                            </svg>
+                            <svg
+                              class="testimonial-star"
+                              viewBox="0 0 20 20"
+                              fill="currentColor"
+                            >
+                              <path
+                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                              />
+                            </svg>
+                            <svg
+                              class="testimonial-star"
+                              viewBox="0 0 20 20"
+                              fill="currentColor"
+                            >
+                              <path
+                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                              />
+                            </svg>
+                            <svg
+                              class="testimonial-star"
+                              viewBox="0 0 20 20"
+                              fill="currentColor"
+                            >
+                              <path
+                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                              />
+                            </svg>
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -1678,11 +2250,11 @@
                   >
                     <path
                       d="M23.0987 15.9192L8.61367 1.29625C8.42587 1.10666 8.17006 1 7.90326 1H2.39757C1.50897 1 1.06176 2.07243 1.68716 2.70375L15.4783 16.6262C15.8657 17.0173 15.8642 17.6479 15.475 18.0371L1.70657 30.8055C1.07657 32.4354 1.52277 33.5126 2.41367 33.5126H7.90597C8.17127 33.5126 8.42557 33.4072 8.61307 33.2197L23.092 18.7409C23.8704 17.9624 23.8734 16.7013 23.0987 15.9192Z"
-                      fill="#9AD2FF"
+                      fill="#2a5298"
                     />
                     <path
                       d="M37.5986 15.9192L23.1137 1.29625C22.9259 1.10666 22.6701 1 22.4033 1H16.8976C16.009 1 15.5618 2.07243 16.1872 2.70375L29.9783 16.6262C30.3657 17.0173 30.3642 17.6479 29.975 18.0371L16.2066 31.8055C15.5766 32.4354 16.0228 33.5126 16.9137 33.5126H22.406C22.6713 33.5126 22.9256 33.4072 23.1131 33.2197L37.5919 18.7409C38.3704 17.9624 38.3734 16.7013 37.5986 15.9192Z"
-                      fill="#9AD2FF"
+                      fill="#2a5298"
                     />
                   </svg>
                 </div>
@@ -1696,11 +2268,11 @@
                   >
                     <path
                       d="M15.9013 15.9192L30.3863 1.29625C30.5741 1.10666 30.8299 1 31.0967 1H36.6024C37.491 1 37.9382 2.07243 37.3128 2.70375L23.5217 16.6262C23.1343 17.0173 23.1358 17.6479 23.5250 18.0371L37.2934 31.8055C37.9234 32.4354 37.4772 33.5126 36.5863 33.5126H31.094C30.8287 33.5126 30.5744 33.4072 30.3869 33.2197L15.9080 18.7409C15.1296 17.9624 15.1266 16.7013 15.9013 15.9192Z"
-                      fill="#9AD2FF"
+                      fill="#2a5298"
                     />
                     <path
                       d="M1.40137 15.9192L15.8863 1.29625C16.0741 1.10666 16.3299 1 16.5967 1H22.1024C22.991 1 23.4382 2.07243 22.8128 2.70375L9.02171 16.6262C8.63434 17.0173 8.63583 17.6479 9.02505 18.0371L22.7934 31.8055C23.4234 32.4354 22.9772 33.5126 22.0863 33.5126H16.594C16.3287 33.5126 16.0744 33.4072 15.8869 33.2197L1.40806 18.7409C0.629618 17.9624 0.626631 16.7013 1.40137 15.9192Z"
-                      fill="#9AD2FF"
+                      fill="#2a5298"
                     />
                   </svg>
                 </div>
@@ -1740,7 +2312,7 @@
                         </div>
                         <div class="xb-item--holder">
                           <h3 class="xb-item--number">
-                            <span class="xbo" data-count="25">00</span
+                            <span class="xbo" data-count="26">00</span
                             ><span class="suffix">+</span>
                           </h3>
                           <p class="xb-item--content">Years of Experience</p>
@@ -1874,7 +2446,8 @@
                         fill="none"
                         xmlns="http://www.w3.org/2000/svg"
                       >
-                        <circle cx="4.5" cy="4.5" r="4.5" fill="#FB3E2D" /></svg
+                        <circle cx="4.5" cy="4.5" r="4.5" fill="#FB3E2D" />
+                      </svg>
                       >Worldwide
                     </span>
                   </div>
@@ -1886,7 +2459,7 @@
         <!-- fanfact end -->
 
         <!-- cta start -->
-        <section
+        <!-- <section
           class="cta cta-bg bg_img pt-85 pb-60"
           data-background="assets/img/citizenship/cta-bg.jpg"
         >
@@ -1918,7 +2491,7 @@
               </div>
             </div>
           </div>
-        </section>
+        </section> -->
         <!-- cta end -->
       </main>
 
@@ -2180,6 +2753,76 @@
               800
             );
           }
+        });
+      });
+
+      // Counter Animation Function
+      function animateCounter(element) {
+        const target = parseInt(element.getAttribute("data-target"));
+
+        // Determine suffix based on element's original content or parent structure
+        let suffix = "";
+        if (element.textContent.includes("+")) suffix = "+";
+        else if (element.textContent.includes("%")) suffix = "%";
+        else if (
+          element.nextElementSibling &&
+          element.nextElementSibling.classList.contains("suffix")
+        ) {
+          suffix = element.nextElementSibling.textContent;
+        }
+
+        const duration = 2000; // 2 seconds
+        const increment = target / (duration / 16); // 60fps
+        let current = 0;
+
+        const timer = setInterval(() => {
+          current += increment;
+          if (current >= target) {
+            current = target;
+            clearInterval(timer);
+          }
+
+          // Format number with commas for large numbers
+          const formattedNumber =
+            current >= 1000
+              ? Math.floor(current).toLocaleString()
+              : Math.floor(current);
+
+          // Update element text, but don't add suffix if it's handled by a separate element
+          if (
+            element.nextElementSibling &&
+            element.nextElementSibling.classList.contains("suffix")
+          ) {
+            element.textContent = formattedNumber;
+          } else {
+            element.textContent = formattedNumber + suffix;
+          }
+        }, 16);
+      }
+
+      // Intersection Observer for counter animation
+      const observerOptions = {
+        threshold: 0.5,
+        rootMargin: "0px 0px -100px 0px",
+      };
+
+      const counterObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (
+            entry.isIntersecting &&
+            !entry.target.classList.contains("animated")
+          ) {
+            entry.target.classList.add("animated");
+            animateCounter(entry.target);
+          }
+        });
+      }, observerOptions);
+
+      // Observe all counter elements
+      document.addEventListener("DOMContentLoaded", function () {
+        const counters = document.querySelectorAll(".counter");
+        counters.forEach((counter) => {
+          counterObserver.observe(counter);
         });
       });
     </script>
