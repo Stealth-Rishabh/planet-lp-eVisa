@@ -116,8 +116,8 @@
         box-sizing: border-box;
         transition: all 0.3s ease;
         overflow: hidden;
-        scale: 0.8;
       }
+
       .glass-form h3 {
         text-align: center;
         margin-bottom: clamp(15px, 3vw, 20px);
@@ -166,6 +166,12 @@
       }
 
       /* Form-specific responsive styles */
+      @media (min-width: 1366px) {
+        .glass-form {
+          scale: 0.8;
+        }
+      }
+
       @media (max-width: 1200px) {
         .glass-form {
           max-width: 95%;
@@ -295,7 +301,7 @@
       @media (max-width: 480px) {
         .glass-form {
           padding: 15px;
-          margin: 15px 10px 0;
+          margin: 15px auto 0;
           border-radius: 12px;
         }
         .glass-form h3 {
