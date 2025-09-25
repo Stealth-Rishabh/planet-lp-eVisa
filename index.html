@@ -74,8 +74,54 @@
         line-height: 1.2;
         color: white;
       }
-      .hero__content .main-heading span {
+      .hero__content .main-heading .with-planet {
         color: #9ad2ff;
+        font-weight: 600;
+        font-size: 0.75em;
+        display: inline-block;
+        margin-top: 10px;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        position: relative;
+      }
+
+      .hero__content .main-heading .with-planet::before {
+        content: "";
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        width: 60px;
+        height: 3px;
+        background: linear-gradient(90deg, #9ad2ff, #2a5298);
+        border-radius: 2px;
+      }
+
+      .hero__content .main-heading .dot-1 {
+        color: #ff6b6b;
+        font-weight: 900;
+        text-shadow: 0 0 20px rgba(255, 107, 107, 0.6);
+        animation: pulse-dot 2s infinite ease-in-out;
+        display: inline-block;
+      }
+
+      .hero__content .main-heading .dot-2 {
+        color: #4ecdc4;
+        font-weight: 900;
+        text-shadow: 0 0 20px rgba(78, 205, 196, 0.6);
+        animation: pulse-dot 2s infinite ease-in-out 0.5s;
+        display: inline-block;
+      }
+
+      @keyframes pulse-dot {
+        0%,
+        100% {
+          transform: scale(1);
+          opacity: 1;
+        }
+        50% {
+          transform: scale(1.2);
+          opacity: 0.8;
+        }
       }
       .hero__content .sub-heading {
         font-size: 18px;
@@ -1001,9 +1047,12 @@
               <div class="col-lg-7 hero-content-col">
                 <div class="hero__content">
                   <h1 class="main-heading wow skewIn">
-                    Your Dream of Global Education<br /><span
-                      >Starts Here.</span
+                    Dream<span class="dot-1">.</span> Discover<span
+                      class="dot-2"
+                      >.</span
                     >
+                    Study Abroad<br />
+                    <span class="with-planet">With Planet Education</span>
                   </h1>
                   <p class="sub-heading wow fadeInUp" data-wow-delay="100ms">
                     With over two decades of expertise, we are your trusted
