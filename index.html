@@ -1,0 +1,2187 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Planet Education</title>
+    <link
+      rel="shortcut icon"
+      href="assets/img/logo/logo.png"
+      type="images/x-icon"
+    />
+
+    <!-- css include -->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="assets/css/fontawesome.css" />
+    <link rel="stylesheet" href="assets/css/animate.css" />
+    <link rel="stylesheet" href="assets/css/swiper.min.css" />
+    <link rel="stylesheet" href="assets/css/odometer.css" />
+    <link rel="stylesheet" href="assets/css/nice-select.css" />
+    <link rel="stylesheet" href="assets/css/jquery-ui.min.css" />
+    <link rel="stylesheet" href="assets/css/magnific-popup.css" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <style>
+      html {
+        scroll-behavior: smooth;
+      }
+      .site-header {
+        position: fixed;
+        width: 100%;
+        top: 0;
+        left: 0;
+        z-index: 999;
+        transition: transform 0.4s ease-out, background-color 0.4s ease-out,
+          padding 0.4s ease-out;
+        will-change: transform, background-color, padding;
+        background-color: transparent !important;
+        padding: 30px 0;
+      }
+
+      .site-header.nav-up {
+        transform: translateY(-100%);
+      }
+
+      .site-header.nav-down {
+        transform: translateY(0);
+      }
+
+      .site-header.header-scrolled {
+        background-color: rgba(0, 0, 60, 0.7);
+        -webkit-backdrop-filter: blur(10px);
+        backdrop-filter: blur(10px);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        padding: 15px 0;
+      }
+      .stricked-menu {
+        display: none !important;
+      }
+      .header__inner {
+        justify-content: flex-start;
+      }
+      .citizenship-hero {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .hero-content-col {
+        text-align: left;
+      }
+      .hero__content .main-heading {
+        font-size: 64px;
+        font-weight: 700;
+        line-height: 1.2;
+        color: white;
+      }
+      .hero__content .main-heading span {
+        color: #9ad2ff;
+      }
+      .hero__content .sub-heading {
+        font-size: 18px;
+        color: rgba(255, 255, 255, 0.85);
+        margin-top: 20px;
+        max-width: 550px;
+      }
+      .hero-stats-container {
+        display: flex;
+        gap: 40px;
+        margin-top: 40px;
+      }
+      .hero-stat h4 {
+        font-size: 42px;
+        font-weight: 700;
+        color: white;
+        margin-bottom: 5px;
+      }
+      .hero-stat p {
+        font-size: 16px;
+        color: rgba(255, 255, 255, 0.8);
+        margin: 0;
+      }
+      .body_wrap {
+        padding-top: 0;
+      }
+
+      .glass-form {
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border-radius: 20px;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        padding: 30px;
+        color: white;
+      }
+      .glass-form h3 {
+        text-align: center;
+        margin-bottom: 20px;
+      }
+      .glass-form .form-group {
+        margin-bottom: 20px;
+      }
+      .glass-form .form-control {
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        color: white;
+        border-radius: 10px;
+        padding: 15px 25px;
+        height: 55px;
+      }
+      .glass-form select.form-control {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23ffffff' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/%3e%3c/svg%3e");
+        background-repeat: no-repeat;
+        background-position: right 1.5rem center;
+        background-size: 1em;
+      }
+      .glass-form select.form-control:required:invalid {
+        color: rgba(255, 255, 255, 0.7);
+      }
+      .glass-form select.form-control option {
+        background: #00003c;
+        color: white;
+      }
+      .glass-form .form-control::placeholder {
+        color: rgba(255, 255, 255, 0.7);
+      }
+      .glass-form .btn {
+        width: auto;
+        border-radius: 10px;
+        padding: 15px 40px;
+      }
+
+      @media (max-width: 991px) {
+        .hero-content-col {
+          text-align: center;
+          margin-bottom: 30px;
+        }
+        .hero__content .sub-heading {
+          margin-left: auto;
+          margin-right: auto;
+        }
+        .hero-stats-container {
+          gap: 20px;
+          justify-content: center;
+        }
+        .hero-stat h4 {
+          font-size: 32px;
+        }
+        .hero__bottom {
+          justify-content: center;
+        }
+        .hero__bottom p {
+          margin-left: auto;
+          margin-right: auto;
+        }
+      }
+
+      @media (min-width: 768px) {
+        br.mobile-only {
+          display: none;
+        }
+      }
+
+      @media (max-width: 767px) {
+        .header__logo {
+          width: 150px !important;
+        }
+        .cr-feture {
+          flex-direction: column;
+        }
+        .process .cr-process-right {
+          padding-top: 60px;
+          padding-bottom: 60px;
+        }
+        .fanfact-right-img {
+          position: static;
+          transform: none;
+          margin-top: 40px;
+        }
+        .cr-fanfact-wrap {
+          padding: 40px 20px;
+        }
+        .hero__content .sub-heading,
+        .hero-stats-container {
+          display: none;
+        }
+        .citizenship-hero {
+          min-height: auto;
+          padding: 220px 0 60px;
+          align-items: flex-start;
+        }
+        .hero-content-col {
+          margin-bottom: 20px;
+        }
+        .hero__content h1 {
+          font-size: 36px;
+          line-height: 1.3;
+        }
+        .hero__content .main-heading {
+          font-size: 42px;
+        }
+        .stats-slider .cr-feature-item {
+          background: transparent !important;
+          border: none !important;
+          padding: 0 !important;
+          box-shadow: none !important;
+        }
+      }
+
+      .stats-slider.swiper-container {
+        padding-bottom: 30px;
+      }
+      .stats-slider .swiper-pagination {
+        bottom: 0;
+      }
+      .stats-slider .swiper-pagination-bullet {
+        background-color: #00003c;
+        opacity: 0.5;
+      }
+      .stats-slider .swiper-pagination-bullet-active {
+        background-color: #2a5298;
+        opacity: 1;
+      }
+
+      .about-planet-section {
+        background-color: #f5fbff;
+      }
+
+      .about-planet-card {
+        background-color: #2a5298;
+        background-image: repeating-linear-gradient(
+          -45deg,
+          transparent,
+          transparent 25px,
+          rgba(0, 0, 0, 0.05) 25px,
+          rgba(0, 0, 0, 0.05) 50px
+        );
+        padding: 50px;
+        border-radius: 20px;
+        color: white;
+        height: 100%;
+      }
+
+      .about-planet-card h2 {
+        font-size: 36px;
+        margin-bottom: 20px;
+        color: white;
+        font-weight: 700;
+      }
+
+      .about-planet-card p {
+        color: rgba(255, 255, 255, 0.9);
+      }
+
+      .about-planet-card .divider {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        margin: 30px 0;
+      }
+
+      .about-planet-card .stats-container {
+        display: flex;
+        justify-content: space-around;
+        text-align: left;
+        margin-bottom: 40px;
+      }
+
+      .about-planet-card .stat-item h4 {
+        font-size: 32px;
+        font-weight: 700;
+        margin-bottom: 5px;
+        color: white;
+      }
+
+      .btn-white {
+        background-color: white !important;
+        color: #2a5298 !important;
+        border-radius: 50px !important;
+        padding: 15px 35px !important;
+      }
+      .btn-white:hover {
+        background-color: #f0f0f0 !important;
+        color: #2a5298 !important;
+      }
+      .btn-white span {
+        color: #2a5298 !important;
+      }
+
+      .about-planet-image {
+        position: relative;
+        height: 100%;
+      }
+
+      .about-planet-image > img {
+        border-radius: 20px;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        filter: grayscale(100%);
+        transition: filter 0.3s ease-in-out;
+      }
+
+      .about-planet-image:hover > img {
+        filter: grayscale(0%);
+      }
+
+      .floating-icon {
+        position: absolute;
+        background-color: white;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        border-radius: 15px;
+        width: 60px;
+        height: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 1;
+      }
+      .floating-icon img {
+        max-width: 30px;
+      }
+
+      .floating-icon.icon-1 {
+        top: 40px;
+        left: -30px;
+      }
+
+      .floating-icon.icon-2 {
+        top: 50%;
+        right: -30px;
+        transform: translateY(-50%);
+      }
+
+      .floating-icon.icon-3 {
+        bottom: -30px;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+
+      /* Responsive adjustments */
+      @media (max-width: 991px) {
+        .about-planet-card {
+          margin-bottom: 40px;
+          padding: 40px 30px;
+        }
+        .floating-icon {
+          width: 50px;
+          height: 50px;
+        }
+        .floating-icon.icon-1,
+        .floating-icon.icon-3 {
+          left: 15px;
+        }
+        .floating-icon.icon-2 {
+          right: 15px;
+        }
+        .floating-icon.icon-3 {
+          bottom: -25px;
+          left: 50%;
+          transform: translateX(-50%);
+        }
+      }
+      @media (max-width: 767px) {
+        .cr-feature-item .xb-item--holder {
+          flex-basis: 0;
+          flex-grow: 0.7;
+        }
+
+        h1.main-heading.wow.skewIn {
+          margin-top: 4rem;
+        }
+
+        .about-planet-section {
+          padding-top: 80px;
+          padding-bottom: 80px;
+        }
+        .about-planet-card {
+          padding: 40px 25px;
+          text-align: center;
+          height: auto;
+        }
+        .about-planet-card .stats-container {
+          flex-wrap: wrap;
+          justify-content: center;
+          gap: 20px;
+          margin-bottom: 35px;
+        }
+        .about-planet-card .stats-container .stat-item {
+          flex-basis: 40%;
+        }
+        .about-planet-card .btn-white {
+          margin: 0 auto;
+          display: block;
+          width: fit-content;
+        }
+        .about-planet-image {
+          height: auto;
+        }
+        .floating-icon.icon-1 {
+          left: 10px;
+        }
+        .floating-icon.icon-2 {
+          right: 10px;
+        }
+
+        .cr-feture {
+          flex-direction: column;
+        }
+        .process .cr-process-right {
+          padding-top: 60px;
+          padding-bottom: 60px;
+        }
+        .fanfact-right-img {
+          position: static;
+          transform: none;
+          margin-top: 40px;
+        }
+        .cr-fanfact-wrap {
+          padding: 40px 20px;
+        }
+        .hero__bottom {
+          display: none;
+        }
+        .citizenship-hero {
+          min-height: auto;
+          padding: 150px 0 60px;
+          align-items: flex-start;
+        }
+        .hero__content h1 {
+          font-size: 36px;
+          line-height: 1.2;
+        }
+      }
+
+      .cr-testtimonial-slider .swiper-slide {
+        height: auto;
+      }
+
+      .cr-testtimonial-slider .cr-testimonial-item {
+        height: 100%;
+      }
+
+      .xb-program-item .xb-item--img img {
+        width: 100%;
+        height: 250px;
+        object-fit: cover;
+      }
+    </style>
+  </head>
+
+  <body class="citizenship_residency">
+    <!-- backtotop - start -->
+    <div class="xb-backtotop style-3">
+      <a href="#" class="scroll">
+        <i class="far fa-arrow-up"></i>
+      </a>
+    </div>
+    <!-- backtotop - end -->
+
+    <!-- preloader start -->
+    <div id="xb-loadding">
+      <div class="loader style-2">
+        <div class="plane">
+          <img class="plane-img" src="assets/img/icon/plane.gif" alt="" />
+        </div>
+        <div class="earth-wrapper">
+          <div class="earth"></div>
+        </div>
+      </div>
+    </div>
+    <!-- preloader end -->
+
+    <div class="body_wrap">
+      <main>
+        <!-- hero start -->
+        <section
+          class="hero hero__style-one citizenship-hero bg_img pos-rel"
+          data-background="assets/img/citizenship/cr-hero_bg.jpg"
+        >
+          <div
+            class="header__logo"
+            style="
+              position: absolute;
+              top: 30px;
+              left: 30px;
+              z-index: 1000;
+              width: 200px;
+            "
+          >
+            <a href="index.html"
+              ><img src="assets/img/logo/logo.png" alt=""
+            /></a>
+          </div>
+          <div class="container">
+            <div class="row align-items-center">
+              <div class="col-lg-7 hero-content-col">
+                <div class="hero__content">
+                  <h1 class="main-heading wow skewIn">
+                    Your Dream of Global Education<br /><span
+                      >Starts Here.</span
+                    >
+                  </h1>
+                  <p class="sub-heading wow fadeInUp" data-wow-delay="100ms">
+                    With over two decades of expertise, we are your trusted
+                    partners in navigating the journey to international
+                    education.
+                  </p>
+                  <div
+                    class="hero-stats-container wow fadeInUp"
+                    data-wow-delay="200ms"
+                  >
+                    <div class="hero-stat">
+                      <h4>26+</h4>
+                      <p>Years of Experience</p>
+                    </div>
+                    <div class="hero-stat">
+                      <h4>350+</h4>
+                      <p>Partner Universities</p>
+                    </div>
+                    <div class="hero-stat">
+                      <h4>98%</h4>
+                      <p>Visa Success Rate</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-5">
+                <div class="glass-form wow fadeInRight" data-wow-delay="400ms">
+                  <h3 style="color: white">Request a Consultation</h3>
+                  <form id="consultation-form" novalidate>
+                    <div class="form-group">
+                      <input
+                        type="text"
+                        class="form-control"
+                        placeholder="Name"
+                        id="name"
+                        required
+                      />
+                      <span
+                        class="error-message"
+                        style="color: red; font-size: 12px"
+                      ></span>
+                    </div>
+                    <div class="form-group">
+                      <input
+                        type="email"
+                        class="form-control"
+                        placeholder="Email"
+                        id="email"
+                        required
+                      />
+                      <span
+                        class="error-message"
+                        style="color: red; font-size: 12px"
+                      ></span>
+                    </div>
+                    <div class="form-group">
+                      <input
+                        type="tel"
+                        class="form-control"
+                        placeholder="Phone"
+                        id="phone"
+                        maxlength="10"
+                        required
+                      />
+                      <span
+                        class="error-message"
+                        style="color: red; font-size: 12px"
+                      ></span>
+                    </div>
+                    <div class="form-group">
+                      <input
+                        type="text"
+                        class="form-control"
+                        placeholder="City"
+                        id="city"
+                        required
+                      />
+                      <span
+                        class="error-message"
+                        style="color: red; font-size: 12px"
+                      ></span>
+                    </div>
+                    <div class="form-group">
+                      <select class="form-control" id="destination" required>
+                        <option value="" disabled selected hidden>
+                          Preferred Study Destination
+                        </option>
+                        <option value="Australia">Australia</option>
+                        <option value="UK">UK</option>
+                        <option value="USA">USA</option>
+                        <option value="Canada">Canada</option>
+                        <option value="New Zealand">New Zealand</option>
+                        <option value="Singapore">Singapore</option>
+                      </select>
+                      <span
+                        class="error-message"
+                        style="color: red; font-size: 12px"
+                      ></span>
+                    </div>
+                    <div class="form-group">
+                      <select class="form-control" id="education" required>
+                        <option value="" disabled selected hidden>
+                          Current Level of Education
+                        </option>
+                        <option value="12th Pass">12th Pass</option>
+                        <option value="Graduate">Graduate</option>
+                        <option value="Post Graduate">Post Graduate</option>
+                      </select>
+                      <span
+                        class="error-message"
+                        style="color: red; font-size: 12px"
+                      ></span>
+                    </div>
+                    <div class="form-group">
+                      <select class="form-control" id="languageTest" required>
+                        <option value="" disabled selected hidden>
+                          Any Language Test Taken?
+                        </option>
+                        <option value="IELTS">IELTS</option>
+                        <option value="TOEFL">TOEFL</option>
+                        <option value="PTE">PTE</option>
+                        <option value="Duolingo">Duolingo</option>
+                        <option value="Others">Others</option>
+                        <option value="None">None</option>
+                      </select>
+                      <span
+                        class="error-message"
+                        style="color: red; font-size: 12px"
+                      ></span>
+                    </div>
+                    <button type="submit" class="thm-btn thm-btn--cr-btn">
+                      Submit
+                    </button>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="cr-hero_shape">
+            <div
+              class="shape shape--1 wow fadeInUp"
+              data-wow-delay="350ms"
+              data-wow-duration=".6s"
+            >
+              <div data-wow-duration=".6s" data-parallax='{"x":80,"y":-80}'>
+                <img src="assets/img/citizenship/cr-fly_shape.png" alt="" />
+              </div>
+            </div>
+            <div
+              class="shape shape--2 wow fadeInRight"
+              data-wow-delay="300ms"
+              data-wow-duration=".8s"
+            >
+              <div class="globe">
+                <img src="assets/img/citizenship/hero-glob.png" alt="" />
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- hero end -->
+
+        <!-- about planet education start -->
+        <section class="about-planet-section pt-130 pb-130">
+          <div class="container">
+            <div class="row align-items-stretch">
+              <div class="col-lg-6">
+                <div class="about-planet-card">
+                  <h2>About Planet Education</h2>
+                  <p>
+                    With over 26 years of expertise, Planet Education has guided
+                    thousands of students toward achieving their international
+                    education dreams. Representing 350+ universities worldwide,
+                    we offer personalized counseling to help you select the
+                    right course university, and country, ensuring a smooth
+                    application process.
+                  </p>
+                  <div class="divider"></div>
+                  <div class="stats-container">
+                    <div class="stat-item">
+                      <h4>25+</h4>
+                      <p>Years</p>
+                    </div>
+                    <div class="stat-item">
+                      <h4>350+</h4>
+                      <p>Universities</p>
+                    </div>
+                    <div class="stat-item">
+                      <h4>10000+</h4>
+                      <p>Students</p>
+                    </div>
+                  </div>
+                  <a href="#" class="thm-btn btn-white"
+                    >Get Started
+                    <span><i class="fal fa-long-arrow-right"></i></span
+                  ></a>
+                </div>
+              </div>
+              <div class="col-lg-6">
+                <div class="about-planet-image">
+                  <img
+                    src="https://studyabroad.planeteducation.info/assets/AboutUs-Cz5xPYd1.webp"
+                    alt="Student Image"
+                    class="img-fluid"
+                  />
+                  <div class="floating-icon icon-1">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="text-blue-600"
+                    >
+                      <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+                      <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
+                    </svg>
+                  </div>
+                  <div class="floating-icon icon-2">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="text-blue-600"
+                    >
+                      <circle cx="12" cy="12" r="10"></circle>
+                      <path d="M2 12h20"></path>
+                      <path
+                        d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"
+                      ></path>
+                    </svg>
+                  </div>
+                  <div class="floating-icon icon-3">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="text-blue-600"
+                    >
+                      <path
+                        d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"
+                      ></path>
+                      <circle cx="9" cy="7" r="4"></circle>
+                      <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                      <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- about planet education end -->
+
+        <!-- feature start -->
+        <section class="feature pt-10 pb-30" data-bg-color="#f5fbff">
+          <div class="container">
+            <div class="sec-title style-2 style-3 text-center mb-40">
+              <span class="sec-title--sub"
+                ><img src="assets/img/icon/h_star.png" alt="" />Stats<img
+                  src="assets/img/icon/h_star.png"
+                  alt=""
+              /></span>
+              <h3
+                class="sec-title--heading wow fadeInUp"
+                data-wow-delay="0ms"
+                data-wow-duration=".6s"
+              >
+                Our Stats
+              </h3>
+            </div>
+            <div class="cr-feture ul_li_between stats-section-container">
+              <div class="cr-feature-wrap">
+                <div class="cr-feature-item">
+                  <div class="xb-item--inner">
+                    <div class="xb-item--icon">
+                      <img
+                        src="assets/img/citizenship/cr-feature_icon01.svg"
+                        alt=""
+                      />
+                    </div>
+                    <div class="xb-item--holder">
+                      <h2 class="xb-item--title">35000+</h2>
+                      <p class="xb-item--content">Dreams Launched</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="cr-feature-item">
+                  <div class="xb-item--inner">
+                    <div class="xb-item--icon">
+                      <img
+                        src="assets/img/citizenship/cr-feature_icon02.svg"
+                        alt=""
+                      />
+                    </div>
+                    <div class="xb-item--holder">
+                      <h2 class="xb-item--title">98%</h2>
+                      <p class="xb-item--content">Visa Success Rate</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="cr-feature-wrap">
+                <div class="cr-feature-item">
+                  <div class="xb-item--inner">
+                    <div class="xb-item--icon">
+                      <img
+                        src="assets/img/citizenship/cr-feature_icon03.svg"
+                        alt=""
+                      />
+                    </div>
+                    <div class="xb-item--holder">
+                      <h2 class="xb-item--title">25+</h2>
+                      <p class="xb-item--content">Years of Experience</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="cr-feature-item">
+                  <div class="xb-item--inner">
+                    <div class="xb-item--icon">
+                      <img
+                        src="assets/img/citizenship/cr-feature_icon04.svg"
+                        alt=""
+                      />
+                    </div>
+                    <div class="xb-item--holder">
+                      <h2 class="xb-item--title">350+</h2>
+                      <p class="xb-item--content">Partner Universities</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="cr-feature-wrap">
+                <div class="cr-feature-item">
+                  <div class="xb-item--inner">
+                    <div class="xb-item--icon">
+                      <img
+                        src="assets/img/citizenship/cr-feature_icon05.svg"
+                        alt=""
+                      />
+                    </div>
+                    <div class="xb-item--holder">
+                      <h2 class="xb-item--title">25+</h2>
+                      <p class="xb-item--content">Offices Worldwide</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="cr-feature-item">
+                  <div class="xb-item--inner">
+                    <div class="xb-item--icon">
+                      <img
+                        src="assets/img/citizenship/cr-feature_icon06.svg"
+                        alt=""
+                      />
+                    </div>
+                    <div class="xb-item--holder">
+                      <h2 class="xb-item--title">10+</h2>
+                      <p class="xb-item--content">
+                        Years of Experienced faculty
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- feature end -->
+
+        <!-- program start -->
+        <section class="program pt-130 pb-130" data-bg-color="#00003c">
+          <div class="container">
+            <div class="sec-title style-2 style-3 text-center mb-60">
+              <span class="sec-title--sub clr-sky"
+                ><img src="assets/img/icon/h_star.png" alt="" />our Partner
+                Countries<img src="assets/img/icon/h_star.png" alt=""
+              /></span>
+              <h3
+                class="sec-title--heading clr-white wow fadeInUp"
+                data-wow-delay="0ms"
+                data-wow-duration=".8s"
+              >
+                Top Study Destinations
+              </h3>
+            </div>
+
+            <div class="xb-program-wrap">
+              <div class="tab-content" id="myTabContent">
+                <div
+                  class="tab-pane fade show active"
+                  id="home"
+                  role="tabpanel"
+                  aria-labelledby="home-tab"
+                >
+                  <div class="row mt-nonoe-30">
+                    <div class="col-lg-4 mt-30">
+                      <div class="xb-program-item">
+                        <div class="xb-item--top">
+                          <div class="xb-item--img">
+                            <img
+                              src="https://images.unsplash.com/photo-1567852701065-b2991a38e34c?q=80&w=1632&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                              alt="University of Sydney"
+                            />
+                            <a
+                              class="thm-btn thm-btn--cr-btn sec-btn"
+                              href="contact.html"
+                              >Learn More This
+                              <span
+                                ><i class="fal fa-long-arrow-right"></i></span
+                            ></a>
+                          </div>
+                          <ul class="list-unstyled ul_li_between">
+                            <li>Australia</li>
+                          </ul>
+                        </div>
+                        <ul class="xb-item--holder list-unstyled">
+                          <li>
+                            <span>Global Recognition</span> - Degrees from
+                            Australian universities are internationally
+                            recognized, opening doors to global career
+                            opportunities.
+                          </li>
+                          <li>
+                            <span>Post-Study Work</span> - Benefit from
+                            post-study work visa options that allow you to gain
+                            valuable work experience after graduation.
+                          </li>
+                          <li>
+                            <span>Vibrant Lifestyle</span> - Experience a
+                            diverse and welcoming culture with beautiful
+                            landscapes and bustling cities.
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div class="col-lg-4 mt-30">
+                      <div class="xb-program-item">
+                        <div class="xb-item--top">
+                          <div class="xb-item--img">
+                            <img
+                              src="https://images.unsplash.com/20/cambridge.JPG?q=80&w=1147&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                              alt="Harvard University"
+                            />
+                            <a
+                              class="thm-btn thm-btn--cr-btn sec-btn"
+                              href="contact.html"
+                              >Learn More This
+                              <span
+                                ><i class="fal fa-long-arrow-right"></i></span
+                            ></a>
+                          </div>
+                          <ul class="list-unstyled ul_li_between">
+                            <li>USA</li>
+                          </ul>
+                        </div>
+                        <ul class="xb-item--holder list-unstyled">
+                          <li>
+                            <span>Top-Ranked Universities</span> - Home to many
+                            of the world's leading universities, offering
+                            cutting-edge resources and research facilities.
+                          </li>
+                          <li>
+                            <span>Flexible Education</span> - Customize your
+                            learning experience with a wide range of courses and
+                            flexible program structures.
+                          </li>
+                          <li>
+                            <span>Career Opportunities</span> - Access a dynamic
+                            job market and numerous internship opportunities
+                            with global corporations.
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div class="col-lg-4 mt-30">
+                      <div class="xb-program-item">
+                        <div class="xb-item--top">
+                          <div class="xb-item--img">
+                            <img
+                              src="https://images.unsplash.com/photo-1617297296495-4af2290c2b84?q=80&w=1167&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                              alt="Oxford University"
+                            />
+                            <a
+                              class="thm-btn thm-btn--cr-btn sec-btn"
+                              href="contact.html"
+                              >Learn More This
+                              <span
+                                ><i class="fal fa-long-arrow-right"></i></span
+                            ></a>
+                          </div>
+                          <ul class="list-unstyled ul_li_between">
+                            <li>UK</li>
+                          </ul>
+                        </div>
+                        <ul class="xb-item--holder list-unstyled">
+                          <li>
+                            <span>World-Class Education</span> - Study at
+                            historic and prestigious universities known for
+                            their academic excellence and high standards.
+                          </li>
+                          <li>
+                            <span>Graduate Route Visa</span> - The Graduate
+                            Route allows you to stay in the UK for at least 2
+                            years after successfully completing your course.
+                          </li>
+                          <li>
+                            <span>Cultural Experience</span> - Immerse yourself
+                            in a rich history, diverse culture, and vibrant
+                            student life across the United Kingdom.
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div class="col-lg-4 mt-30">
+                      <div class="xb-program-item">
+                        <div class="xb-item--top">
+                          <div class="xb-item--img">
+                            <img
+                              src="https://images.unsplash.com/photo-1542704792-e30dac463c90?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                              alt="University of Toronto"
+                            />
+                            <a
+                              class="thm-btn thm-btn--cr-btn sec-btn"
+                              href="contact.html"
+                              >Learn More This
+                              <span
+                                ><i class="fal fa-long-arrow-right"></i></span
+                            ></a>
+                          </div>
+                          <ul class="list-unstyled ul_li_between">
+                            <li>Canada</li>
+                          </ul>
+                        </div>
+                        <ul class="xb-item--holder list-unstyled">
+                          <li>
+                            <span>High Quality of Life</span> - Enjoy a safe,
+                            inclusive, and multicultural environment with a high
+                            standard of living.
+                          </li>
+                          <li>
+                            <span>Affordable Education</span> - Benefit from
+                            competitive tuition fees and a cost of living that
+                            is generally lower than other top study
+                            destinations.
+                          </li>
+                          <li>
+                            <span>Immigration Pathways</span> - Canada offers
+                            clear pathways for international students to gain
+                            permanent residency after their studies.
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div class="col-lg-4 mt-30">
+                      <div class="xb-program-item">
+                        <div class="xb-item--top">
+                          <div class="xb-item--img">
+                            <img
+                              src="https://theacademicinsights.com/wp-content/uploads/2020/07/University_of_Otago-1024x768.jpg"
+                              alt="University of Auckland"
+                            />
+                            <a
+                              class="thm-btn thm-btn--cr-btn sec-btn"
+                              href="contact.html"
+                              >Learn More This
+                              <span
+                                ><i class="fal fa-long-arrow-right"></i></span
+                            ></a>
+                          </div>
+                          <ul class="list-unstyled ul_li_between">
+                            <li>New Zealand</li>
+                          </ul>
+                        </div>
+                        <ul class="xb-item--holder list-unstyled">
+                          <li>
+                            <span>Innovative Learning</span> - Experience a
+                            progressive education system that encourages
+                            critical thinking and creativity.
+                          </li>
+                          <li>
+                            <span>Stunning Scenery</span> - Study amidst
+                            breathtaking natural landscapes, from mountains and
+                            lakes to beautiful coastlines.
+                          </li>
+                          <li>
+                            <span>Friendly & Safe</span> - New Zealand is known
+                            for its welcoming culture and safe environment for
+                            international students.
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div class="col-lg-4 mt-30">
+                      <div class="xb-program-item">
+                        <div class="xb-item--top">
+                          <div class="xb-item--img">
+                            <img
+                              src="https://images.unsplash.com/photo-1600664356348-10686526af4f?q=80&w=1175&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                              alt="Singapore"
+                            />
+                            <a
+                              class="thm-btn thm-btn--cr-btn sec-btn"
+                              href="contact.html"
+                              >Learn More This
+                              <span
+                                ><i class="fal fa-long-arrow-right"></i></span
+                            ></a>
+                          </div>
+                          <ul class="list-unstyled ul_li_between">
+                            <li>Singapore</li>
+                          </ul>
+                        </div>
+                        <ul class="xb-item--holder list-unstyled">
+                          <li>
+                            <span>Global Business Hub</span> - Gain a
+                            competitive edge by studying in a leading global
+                            finance and trade hub with a strong economy.
+                          </li>
+                          <li>
+                            <span>Multicultural Environment</span> - Experience
+                            a unique blend of Eastern and Western cultures in a
+                            vibrant and diverse society.
+                          </li>
+                          <li>
+                            <span>Top-Tier Institutions</span> - Attend
+                            world-renowned universities known for their
+                            excellence in research and innovation.
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="tab-pane fade"
+                  id="profile"
+                  role="tabpanel"
+                  aria-labelledby="profile-tab"
+                ></div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- program end -->
+
+        <div class="pt-10 pb-130">
+          <!-- brand start -->
+          <section class="brand pt-110">
+            <div class="container">
+              <div class="cr-brand-wrap">
+                <div class="sec-title style-2 style-3 text-center">
+                  <span class="sec-title--sub"
+                    ><img src="assets/img/icon/h_star.png" alt="" />our Global
+                    Partnerships<img src="assets/img/icon/h_star.png" alt=""
+                  /></span>
+                </div>
+                <div class="xb-swiper-sliders brand-slider swiper-container">
+                  <div class="xb-carousel-inner">
+                    <div class="xb-swiper-container swiper-container">
+                      <div class="xb-swiper-wrapper swiper-wrapper">
+                        <div class="swiper-slide xb-swiper-slide">
+                          <a href="#!"
+                            ><img
+                              src="assets/img/brand/br_01.png"
+                              alt="Brand 8"
+                          /></a>
+                        </div>
+                        <div class="swiper-slide xb-swiper-slide">
+                          <a href="#!"
+                            ><img
+                              src="assets/img/brand/br_02.png"
+                              alt="Brand 9"
+                          /></a>
+                        </div>
+                        <div class="swiper-slide xb-swiper-slide">
+                          <a href="#!"
+                            ><img
+                              src="assets/img/brand/br_03.png"
+                              alt="Brand 10"
+                          /></a>
+                        </div>
+                        <div class="swiper-slide xb-swiper-slide">
+                          <a href="#!"
+                            ><img
+                              src="assets/img/brand/br_04.png"
+                              alt="Brand 11"
+                          /></a>
+                        </div>
+                        <div class="swiper-slide xb-swiper-slide">
+                          <a href="#!"
+                            ><img
+                              src="assets/img/brand/br_05.png"
+                              alt="Brand 12"
+                          /></a>
+                        </div>
+                        <div class="swiper-slide xb-swiper-slide">
+                          <a href="#!"
+                            ><img
+                              src="assets/img/brand/br_06.png"
+                              alt="Brand 13"
+                          /></a>
+                        </div>
+                        <div class="swiper-slide xb-swiper-slide">
+                          <a href="#!"
+                            ><img
+                              src="assets/img/brand/br_07.png"
+                              alt="Brand 14"
+                          /></a>
+                        </div>
+                        <div class="swiper-slide xb-swiper-slide">
+                          <a href="#!"
+                            ><img
+                              src="assets/img/brand/br_08.png"
+                              alt="Brand 15"
+                          /></a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+          <!-- brand end -->
+        </div>
+
+        <!-- process start -->
+        <section class="process" data-bg-color="#9ad2ff">
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-6">
+                <div class="cr-process-left pt-130">
+                  <div
+                    class="sec-title style-2 style-3 wow fadeInUp"
+                    data-wow-delay="0ms"
+                    data-wow-duration=".8s"
+                  >
+                    <span class="sec-title--sub"
+                      ><img src="assets/img/icon/h_star.png" alt="" />Our
+                      Services<img src="assets/img/icon/h_star.png" alt=""
+                    /></span>
+                    <h3 class="sec-title--heading mb-15">
+                      Comprehensive Support for <br />
+                      Your Education Journey
+                    </h3>
+                    <p>
+                      From initial counseling to post-arrival assistance, our
+                      dedicated team provides end-to-end support to ensure your
+                      path to studying abroad is seamless and successful.
+                    </p>
+                  </div>
+                  <div
+                    class="mt-45 wow fadeInUp"
+                    data-wow-delay="0ms"
+                    data-wow-duration=".8s"
+                  >
+                    <a
+                      class="thm-btn thm-btn--cr-btn thm-btn--cr-btn-hover-white"
+                      href="#consultation-form"
+                      >Explore Our Services
+                      <span><i class="fal fa-long-arrow-right"></i></span
+                    ></a>
+                  </div>
+                  <div class="cr-process-left-img">
+                    <img
+                      src="https://images.unsplash.com/photo-1586441133374-ed1cb4007a47?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                      alt=""
+                    />
+                    <div class="process-shape">
+                      <div class="shape shape--1">
+                        <img src="assets/img/citizenship/earght.svg" alt="" />
+                      </div>
+                      <div class="shape shape--2 wow fadeInRight">
+                        <div
+                          class="inner"
+                          data-wow-duration="150ms"
+                          data-parallax='{"x":-50,"y":-50}'
+                        >
+                          <img src="assets/img/citizenship/flan.svg" alt="" />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-6">
+                <div class="cr-process-right pt-140 pb-130">
+                  <div class="cr-feature-item cr-process-item">
+                    <div class="xb-item--inner">
+                      <div class="xb-item--icon">
+                        <img
+                          src="assets/img/citizenship/process-icon01.svg"
+                          alt=""
+                        />
+                      </div>
+                      <div class="xb-item--holder">
+                        <h2 class="xb-item--title">
+                          Student Profiling & Counseling
+                        </h2>
+                      </div>
+                      <ul class="xb-item--step ul_li list-unstyled">
+                        <li>Service 1</li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="cr-feature-item cr-process-item">
+                    <div class="xb-item--inner">
+                      <div class="xb-item--icon">
+                        <img
+                          src="assets/img/citizenship/process-icon02.svg"
+                          alt=""
+                        />
+                      </div>
+                      <div class="xb-item--holder">
+                        <h2 class="xb-item--title">
+                          Course & University Selection
+                        </h2>
+                      </div>
+                      <ul class="xb-item--step ul_li list-unstyled">
+                        <li>Service 2</li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="cr-feature-item cr-process-item">
+                    <div class="xb-item--inner">
+                      <div class="xb-item--icon">
+                        <img
+                          src="assets/img/citizenship/process-icon03.svg"
+                          alt=""
+                        />
+                      </div>
+                      <div class="xb-item--holder">
+                        <h2 class="xb-item--title">Test Preparation</h2>
+                      </div>
+                      <ul class="xb-item--step ul_li list-unstyled">
+                        <li>Service 3</li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="cr-feature-item cr-process-item">
+                    <div class="xb-item--inner">
+                      <div class="xb-item--icon">
+                        <img
+                          src="assets/img/citizenship/process-icon04.svg"
+                          alt=""
+                        />
+                      </div>
+                      <div class="xb-item--holder">
+                        <h2 class="xb-item--title">Application Assistance</h2>
+                      </div>
+                      <ul class="xb-item--step ul_li list-unstyled">
+                        <li>Service 4</li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="cr-feature-item cr-process-item">
+                    <div class="xb-item--inner">
+                      <div class="xb-item--icon">
+                        <img
+                          src="assets/img/citizenship/process-icon05.svg"
+                          alt=""
+                        />
+                      </div>
+                      <div class="xb-item--holder">
+                        <h2 class="xb-item--title">
+                          Admission Offer & Acceptance
+                        </h2>
+                      </div>
+                      <ul class="xb-item--step ul_li list-unstyled">
+                        <li>Service 5</li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="cr-feature-item cr-process-item">
+                    <div class="xb-item--inner">
+                      <div class="xb-item--icon">
+                        <img
+                          src="assets/img/citizenship/process-icon01.svg"
+                          alt=""
+                        />
+                      </div>
+                      <div class="xb-item--holder">
+                        <h2 class="xb-item--title">
+                          Financial Planning & Scholarships
+                        </h2>
+                      </div>
+                      <ul class="xb-item--step ul_li list-unstyled">
+                        <li>Service 6</li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="cr-feature-item cr-process-item">
+                    <div class="xb-item--inner">
+                      <div class="xb-item--icon">
+                        <img
+                          src="assets/img/citizenship/process-icon02.svg"
+                          alt=""
+                        />
+                      </div>
+                      <div class="xb-item--holder">
+                        <h2 class="xb-item--title">Visa Guidance & Filing</h2>
+                      </div>
+                      <ul class="xb-item--step ul_li list-unstyled">
+                        <li>Service 7</li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="cr-feature-item cr-process-item">
+                    <div class="xb-item--inner">
+                      <div class="xb-item--icon">
+                        <img
+                          src="assets/img/citizenship/process-icon03.svg"
+                          alt=""
+                        />
+                      </div>
+                      <div class="xb-item--holder">
+                        <h2 class="xb-item--title">Pre-Departure Support</h2>
+                      </div>
+                      <ul class="xb-item--step ul_li list-unstyled">
+                        <li>Service 8</li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="cr-feature-item cr-process-item">
+                    <div class="xb-item--inner">
+                      <div class="xb-item--icon">
+                        <img
+                          src="assets/img/citizenship/process-icon04.svg"
+                          alt=""
+                        />
+                      </div>
+                      <div class="xb-item--holder">
+                        <h2 class="xb-item--title">Post-Arrival Services</h2>
+                      </div>
+                      <ul class="xb-item--step ul_li list-unstyled">
+                        <li>Service 9</li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="cr-feature-item cr-process-item">
+                    <div class="xb-item--inner">
+                      <div class="xb-item--icon">
+                        <img
+                          src="assets/img/citizenship/process-icon05.svg"
+                          alt=""
+                        />
+                      </div>
+                      <div class="xb-item--holder">
+                        <h2 class="xb-item--title">
+                          Career & Settlement Support
+                        </h2>
+                      </div>
+                      <ul class="xb-item--step ul_li list-unstyled">
+                        <li>Service 10</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- process end -->
+
+        <!-- testimonial start -->
+        <section
+          class="testimonial o-hidden pt-130 pb-100"
+          data-bg-color="#f5fbff"
+        >
+          <div class="container">
+            <div class="sec-title text-center style-2 style-3 mb-60">
+              <span class="sec-title--sub"
+                ><img src="assets/img/icon/h_star.png" alt="" />testimonial<img
+                  src="assets/img/icon/h_star.png"
+                  alt=""
+              /></span>
+              <h3
+                class="sec-title--heading wow fadeInUp"
+                data-wow-delay="0ms"
+                data-wow-duration=".8s"
+              >
+                Student testimonials
+              </h3>
+            </div>
+            <div class="cr-testtimonial-wrapper">
+              <div class="cr-testtimonial-slider swiper-container">
+                <div class="swiper-wrapper">
+                  <div class="swiper-slide">
+                    <div class="cr-testimonial-item">
+                      <img
+                        src="https://studyabroad.planeteducation.info/assets/hemanth-Cm0Ox9-N.jpg"
+                        alt="Hemanth Rajkumar"
+                      />
+                      <div class="xb-item--inner">
+                        <h3
+                          class="xb-item--author"
+                          style="
+                            font-size: 24px;
+                            font-weight: 700;
+                            margin-bottom: 5px;
+                          "
+                        >
+                          Hemanth Rajkumar
+                        </h3>
+                        <span
+                          class="xb-item--desig"
+                          style="
+                            color: #f0c348;
+                            font-size: 14px;
+                            margin-bottom: 15px;
+                            display: inline-block;
+                          "
+                          >UTS, Sydney • Masters in Marketing</span
+                        >
+                        <p class="xb-item--content">
+                          "Planet Education is the right choice for a
+                          hassle-free application with continuous updates. Now,
+                          I'm a student at UTS, Sydney, and all credit goes to
+                          Mr. Vasantosh and his team."
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <div class="cr-testimonial-item cr-tes-item-2">
+                      <img
+                        src="https://studyabroad.planeteducation.info/assets/Prachit-Cju1otva.png"
+                        alt="Prachit Desai"
+                      />
+                      <div class="xb-item--inner">
+                        <h3
+                          class="xb-item--author"
+                          style="
+                            font-size: 24px;
+                            font-weight: 700;
+                            margin-bottom: 5px;
+                          "
+                        >
+                          Prachit Desai
+                        </h3>
+                        <span
+                          class="xb-item--desig"
+                          style="
+                            color: #f0c348;
+                            font-size: 14px;
+                            margin-bottom: 15px;
+                            display: inline-block;
+                          "
+                          >Campus Coventry • BSc Honors in Aviation
+                          Management</span
+                        >
+                        <p class="xb-item--content">
+                          "With the help of the staff, I faced no issues with my
+                          visa and admission for Campus Coventry. I'm proud to
+                          say I got my visa in just 64 hours."
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <div class="cr-testimonial-item cr-tes-item-3">
+                      <img
+                        src="https://studyabroad.planeteducation.info/assets/Smit-DZfNx3LF.png"
+                        alt="Smit Shah"
+                      />
+                      <div class="xb-item--inner">
+                        <h3
+                          class="xb-item--author"
+                          style="
+                            font-size: 24px;
+                            font-weight: 700;
+                            margin-bottom: 5px;
+                          "
+                        >
+                          Smit Shah
+                        </h3>
+                        <span
+                          class="xb-item--desig"
+                          style="
+                            color: #f0c348;
+                            font-size: 14px;
+                            margin-bottom: 15px;
+                            display: inline-block;
+                          "
+                          >Griffith University</span
+                        >
+                        <p class="xb-item--content">
+                          "A friend recommended Planet Education. After their
+                          counseling, I selected Griffith University. The
+                          process was smooth, and I received my COE as planned."
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <div class="cr-testimonial-item cr-tes-item-2">
+                      <img
+                        src="https://studyabroad.planeteducation.info/assets/Pramash-C2QKSOcC.png"
+                        alt="Pramash Panchal"
+                      />
+                      <div class="xb-item--inner">
+                        <h3
+                          class="xb-item--author"
+                          style="
+                            font-size: 24px;
+                            font-weight: 700;
+                            margin-bottom: 5px;
+                          "
+                        >
+                          Pramash Panchal
+                        </h3>
+                        <span
+                          class="xb-item--desig"
+                          style="
+                            color: #f0c348;
+                            font-size: 14px;
+                            margin-bottom: 15px;
+                            display: inline-block;
+                          "
+                          >Canada</span
+                        >
+                        <p class="xb-item--content">
+                          "Thanks to the team's guidance, I got my admission in
+                          Canada. I found Planet Education to be the best and
+                          most helpful consultancy. I received my visa in just
+                          15 days!"
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="cr-tesmonial-btn">
+                <div class="cr-tes-btn crt-button-next">
+                  <svg
+                    width="39"
+                    height="35"
+                    viewBox="0 0 39 35"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M23.0987 15.9192L8.61367 1.29625C8.42587 1.10666 8.17006 1 7.90326 1H2.39757C1.50897 1 1.06176 2.07243 1.68716 2.70375L15.4783 16.6262C15.8657 17.0173 15.8642 17.6479 15.475 18.0371L1.70657 30.8055C1.07657 32.4354 1.52277 33.5126 2.41367 33.5126H7.90597C8.17127 33.5126 8.42557 33.4072 8.61307 33.2197L23.092 18.7409C23.8704 17.9624 23.8734 16.7013 23.0987 15.9192Z"
+                      fill="#9AD2FF"
+                    />
+                    <path
+                      d="M37.5986 15.9192L23.1137 1.29625C22.9259 1.10666 22.6701 1 22.4033 1H16.8976C16.009 1 15.5618 2.07243 16.1872 2.70375L29.9783 16.6262C30.3657 17.0173 30.3642 17.6479 29.975 18.0371L16.2066 31.8055C15.5766 32.4354 16.0228 33.5126 16.9137 33.5126H22.406C22.6713 33.5126 22.9256 33.4072 23.1131 33.2197L37.5919 18.7409C38.3704 17.9624 38.3734 16.7013 37.5986 15.9192Z"
+                      fill="#9AD2FF"
+                    />
+                  </svg>
+                </div>
+                <div class="cr-tes-btn crt-button-prev">
+                  <svg
+                    width="39"
+                    height="35"
+                    viewBox="0 0 39 35"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M15.9013 15.9192L30.3863 1.29625C30.5741 1.10666 30.8299 1 31.0967 1H36.6024C37.491 1 37.9382 2.07243 37.3128 2.70375L23.5217 16.6262C23.1343 17.0173 23.1358 17.6479 23.5250 18.0371L37.2934 31.8055C37.9234 32.4354 37.4772 33.5126 36.5863 33.5126H31.094C30.8287 33.5126 30.5744 33.4072 30.3869 33.2197L15.9080 18.7409C15.1296 17.9624 15.1266 16.7013 15.9013 15.9192Z"
+                      fill="#9AD2FF"
+                    />
+                    <path
+                      d="M1.40137 15.9192L15.8863 1.29625C16.0741 1.10666 16.3299 1 16.5967 1H22.1024C22.991 1 23.4382 2.07243 22.8128 2.70375L9.02171 16.6262C8.63434 17.0173 8.63583 17.6479 9.02505 18.0371L22.7934 31.8055C23.4234 32.4354 22.9772 33.5126 22.0863 33.5126H16.594C16.3287 33.5126 16.0744 33.4072 15.8869 33.2197L1.40806 18.7409C0.629618 17.9624 0.626631 16.7013 1.40137 15.9192Z"
+                      fill="#9AD2FF"
+                    />
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- testimonial end -->
+
+        <!-- fanfact start -->
+        <section class="fanfact pb-130" data-bg-color="#f5fbff">
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-10 col-md-12">
+                <div class="cr-fanfact-wrap pos-rel">
+                  <div class="sec-title style-2 style-3 mb-70">
+                    <span class="sec-title--sub clr-white"
+                      ><img src="assets/img/icon/h_star.png" alt="" />our
+                      achievement<img src="assets/img/icon/h_star.png" alt=""
+                    /></span>
+                    <h3
+                      class="sec-title--heading clr-white wow skewIn"
+                      data-wow-delay="0ms"
+                      data-wow-duration=".8s"
+                    >
+                      We Proudly Represent
+                    </h3>
+                  </div>
+                  <div class="cr-fanfact-inner ul_li">
+                    <div class="cr-fanfact-item">
+                      <div class="xb-item--inner ul_li">
+                        <div class="xb-item--icon">
+                          <img
+                            src="assets/img/citizenship/cr-fanfact-icon01.svg"
+                            alt=""
+                          />
+                        </div>
+                        <div class="xb-item--holder">
+                          <h3 class="xb-item--number">
+                            <span class="xbo" data-count="25">00</span
+                            ><span class="suffix">+</span>
+                          </h3>
+                          <p class="xb-item--content">Years of Experience</p>
+                        </div>
+                        <span class="line-shape">
+                          <svg
+                            width="3"
+                            height="63"
+                            viewBox="0 0 3 63"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <rect
+                              y="63"
+                              width="45"
+                              height="3"
+                              transform="rotate(-90 0 63)"
+                              fill="#FB3E2D"
+                            />
+                            <rect
+                              y="15"
+                              width="3"
+                              height="3"
+                              transform="rotate(-90 0 15)"
+                              fill="#FB3E2D"
+                            />
+                            <rect
+                              y="9"
+                              width="3"
+                              height="3"
+                              transform="rotate(-90 0 9)"
+                              fill="#FB3E2D"
+                            />
+                            <rect
+                              y="3"
+                              width="3"
+                              height="3"
+                              transform="rotate(-90 0 3)"
+                              fill="#FB3E2D"
+                            />
+                          </svg>
+                        </span>
+                      </div>
+                    </div>
+                    <div class="cr-fanfact-item">
+                      <div class="xb-item--inner ul_li">
+                        <div class="xb-item--icon">
+                          <img
+                            src="assets/img/citizenship/cr-fanfact-icon02.svg"
+                            alt=""
+                          />
+                        </div>
+                        <div class="xb-item--holder">
+                          <h3 class="xb-item--number">
+                            <span class="xbo" data-count="10,000">00</span
+                            ><span class="suffix">+</span>
+                          </h3>
+                          <p class="xb-item--content">Success Stories</p>
+                        </div>
+                        <span class="line-shape">
+                          <svg
+                            width="3"
+                            height="63"
+                            viewBox="0 0 3 63"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <rect
+                              y="63"
+                              width="45"
+                              height="3"
+                              transform="rotate(-90 0 63)"
+                              fill="#FB3E2D"
+                            />
+                            <rect
+                              y="15"
+                              width="3"
+                              height="3"
+                              transform="rotate(-90 0 15)"
+                              fill="#FB3E2D"
+                            />
+                            <rect
+                              y="9"
+                              width="3"
+                              height="3"
+                              transform="rotate(-90 0 9)"
+                              fill="#FB3E2D"
+                            />
+                            <rect
+                              y="3"
+                              width="3"
+                              height="3"
+                              transform="rotate(-90 0 3)"
+                              fill="#FB3E2D"
+                            />
+                          </svg>
+                        </span>
+                      </div>
+                    </div>
+                    <div class="cr-fanfact-item">
+                      <div class="xb-item--inner ul_li">
+                        <div class="xb-item--icon">
+                          <img
+                            src="assets/img/citizenship/cr-fanfact-icon03.svg"
+                            alt=""
+                          />
+                        </div>
+                        <div class="xb-item--holder">
+                          <h3 class="xb-item--number">
+                            <span class="xbo" data-count="350">00</span
+                            ><span class="suffix">+</span>
+                          </h3>
+                          <p class="xb-item--content">Partner Universities</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="fanfact-right-img wow fadeInRight"
+                    data-wow-delay="150ms"
+                    data-wow-duration=".8s"
+                  >
+                    <div class="image">
+                      <img src="assets/img/citizenship/earth.png" alt="" />
+                    </div>
+                    <span>
+                      <svg
+                        width="9"
+                        height="9"
+                        viewBox="0 0 9 9"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <circle cx="4.5" cy="4.5" r="4.5" fill="#FB3E2D" /></svg
+                      >Worldwide
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- fanfact end -->
+
+        <!-- cta start -->
+        <section
+          class="cta cta-bg bg_img pt-85 pb-60"
+          data-background="assets/img/citizenship/cta-bg.jpg"
+        >
+          <div class="container">
+            <div class="cta-wrap">
+              <div
+                class="xb-item--inner wow fadeInUp"
+                data-wow-delay="0ms"
+                data-wow-duration=".8s"
+              >
+                <h2 class="xb-item--title">Let's Discuss The Details</h2>
+                <p class="xb-item--content">
+                  We provide personalized solutions, selecting the ideal country
+                  and status, and guide you through every step of the
+                  Citizenship and Residency process.
+                </p>
+                <div class="cat-btn ul_li mt-45">
+                  <a class="thm-btn thm-btn--cr-btn" href="#consultation-form"
+                    >Get a Free Consultation
+                    <span><i class="fal fa-long-arrow-right"></i></span
+                  ></a>
+                  <a
+                    class="thm-btn thm-btn--cr-btn thm-btn--cr-btn-hover-white"
+                    href="#consultation-form"
+                    >Explore Our Services
+                    <span><i class="fal fa-long-arrow-right"></i></span
+                  ></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- cta end -->
+      </main>
+
+      <!-- footer start -->
+      <footer
+        class="site-footer footer-style-four pt-40"
+        data-bg-color="#00003c"
+      >
+        <div class="container">
+          <div class="footer__copyright ul_li_between justify-content-center">
+            <div class="footer__copyright-text mt-15 text-center">
+              &copy; copyright @ 2025 All rights reserved | Planet Education
+            </div>
+          </div>
+        </div>
+      </footer>
+      <!-- footer start -->
+    </div>
+
+    <!-- jquery include -->
+    <script src="assets/js/jquery-3.7.1.min.js"></script>
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/swiper.min.js"></script>
+    <script src="assets/js/wow.min.js"></script>
+    <script src="assets/js/appear.js"></script>
+    <script src="assets/js/odometer.min.js"></script>
+    <script src="assets/js/jquery.nice-select.min.js"></script>
+    <script src="assets/js/imagesloaded.pkgd.min.js"></script>
+    <script src="assets/js/isotope.pkgd.min.js"></script>
+    <script src="assets/js/jquery.magnific-popup.min.js"></script>
+    <script src="assets/js/jquery-ui.min.js"></script>
+    <script src="assets/js/magnific-popup.min.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const form = document.getElementById("consultation-form");
+        if (!form) return;
+        const nameInput = document.getElementById("name");
+        const emailInput = document.getElementById("email");
+        const phoneInput = document.getElementById("phone");
+        const cityInput = document.getElementById("city");
+        const destinationInput = document.getElementById("destination");
+        const educationInput = document.getElementById("education");
+        const languageTestInput = document.getElementById("languageTest");
+
+        form.addEventListener("submit", function (e) {
+          e.preventDefault(); // Always prevent default form submission
+
+          let isValid = true;
+          document
+            .querySelectorAll(".error-message")
+            .forEach((span) => (span.textContent = ""));
+
+          // Name validation
+          const nameValue = nameInput.value.trim();
+          const nameError = nameInput.nextElementSibling;
+          if (nameValue === "") {
+            nameError.textContent = "Name is required.";
+            isValid = false;
+          } else if (!/^[A-Za-z\s]+$/.test(nameValue)) {
+            nameError.textContent = "Name can only contain letters and spaces.";
+            isValid = false;
+          }
+
+          // Email validation
+          const emailValue = emailInput.value.trim();
+          const emailError = emailInput.nextElementSibling;
+          if (emailValue === "") {
+            emailError.textContent = "Email is required.";
+            isValid = false;
+          } else if (!/\S+@\S+\.\S+/.test(emailValue)) {
+            emailError.textContent = "Please enter a valid email address.";
+            isValid = false;
+          }
+
+          // Phone validation
+          const phoneValue = phoneInput.value.trim();
+          const phoneError = phoneInput.nextElementSibling;
+          if (phoneValue === "") {
+            phoneError.textContent = "Phone number is required.";
+            isValid = false;
+          } else if (!/^\d{10}$/.test(phoneValue)) {
+            phoneError.textContent = "Phone number must be 10 digits.";
+            isValid = false;
+          } else if (parseInt(phoneValue[0]) <= 5) {
+            phoneError.textContent =
+              "Phone number must start with a digit greater than 5.";
+            isValid = false;
+          }
+
+          // City validation
+          const cityValue = cityInput.value.trim();
+          const cityError = cityInput.nextElementSibling;
+          if (cityValue === "") {
+            cityError.textContent = "City is required.";
+            isValid = false;
+          } else if (!/^[A-Za-z\s]+$/.test(cityValue)) {
+            cityError.textContent = "City can only contain letters and spaces.";
+            isValid = false;
+          }
+
+          // Dropdown validations
+          const destinationError = destinationInput.nextElementSibling;
+          if (destinationInput.value === "") {
+            destinationError.textContent = "Please select a destination.";
+            isValid = false;
+          }
+          const educationError = educationInput.nextElementSibling;
+          if (educationInput.value === "") {
+            educationError.textContent = "Please select your education level.";
+            isValid = false;
+          }
+          const languageTestError = languageTestInput.nextElementSibling;
+          if (languageTestInput.value === "") {
+            languageTestError.textContent =
+              "Please select a language test option.";
+            isValid = false;
+          }
+          // if (!isValid) {
+          //   e.preventDefault();
+          // }
+
+          if (isValid) {
+            const submitButton = form.querySelector('button[type="submit"]');
+            const originalButtonText = submitButton.innerHTML;
+            submitButton.disabled = true;
+            submitButton.innerHTML = "Submitting...";
+
+            const urlParams = new URLSearchParams(window.location.search);
+
+            const formData = {
+              Name: nameInput.value.trim(),
+              email: emailInput.value.trim(),
+              phone: phoneInput.value.trim(),
+              current_city: cityInput.value.trim(),
+              preferred_study_destination: destinationInput.value,
+              current_level_of_education: educationInput.value,
+              language_test_taken: languageTestInput.value,
+              utm_source: urlParams.get("utm_source"),
+              utm_medium: urlParams.get("utm_medium"),
+              utm_campaign: urlParams.get("utm_campaign"),
+              utm_term: urlParams.get("utm_term"),
+              utm_content: urlParams.get("utm_content"),
+              submission_url: window.location.href,
+              referrer: document.referrer,
+            };
+
+            fetch("https://stealthlearn.in/studyAbroad/submit-form.php", {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify(formData),
+            })
+              .then((response) => response.json())
+              .then((data) => {
+                if (data.success) {
+                  window.location.href = "thankyou.html";
+                } else {
+                  alert("Error: " + data.error);
+                }
+              })
+              .catch((error) => {
+                console.error("Error:", error);
+                alert("An unexpected error occurred. Please try again.");
+              })
+              .finally(() => {
+                submitButton.disabled = false;
+                submitButton.innerHTML = originalButtonText;
+              });
+          }
+        });
+
+        // Real-time validation to prevent invalid characters
+        nameInput.addEventListener("input", function () {
+          this.value = this.value.replace(/[^A-Za-z\s]/g, "");
+        });
+
+        cityInput.addEventListener("input", function () {
+          this.value = this.value.replace(/[^A-Za-z\s]/g, "");
+        });
+
+        phoneInput.addEventListener("input", function () {
+          // Allow only numbers
+          this.value = this.value.replace(/[^0-9]/g, "");
+          // The first digit must be greater than 5
+          if (this.value.length > 0 && parseInt(this.value[0]) <= 5) {
+            this.value = "";
+          }
+        });
+
+        // Stats Slider for Mobile
+        const statsContainer = document.querySelector(
+          ".stats-section-container"
+        );
+        const originalStatsHTML = statsContainer.innerHTML;
+        let statsSwiper;
+
+        const statsSliderHandler = () => {
+          const isMobile = window.innerWidth <= 767;
+
+          if (isMobile && !statsSwiper) {
+            const statItems = document.querySelectorAll(
+              ".stats-section-container .cr-feature-item"
+            );
+            let slidesHTML = "";
+            statItems.forEach((item) => {
+              // Add swiper-slide class and ensure content is centered
+              item.classList.add("swiper-slide");
+              item.querySelector(".xb-item--inner").style.justifyContent =
+                "center";
+              slidesHTML += item.outerHTML;
+            });
+
+            statsContainer.innerHTML = `
+                    <div class="swiper-wrapper">${slidesHTML}</div>
+                    <div class="swiper-pagination"></div>
+                `;
+            statsContainer.classList.add("swiper-container", "stats-slider");
+
+            statsSwiper = new Swiper(".stats-slider", {
+              loop: true,
+              slidesPerView: 1,
+              centeredSlides: true,
+              spaceBetween: 20,
+              pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+              },
+              breakpoints: {
+                576: {
+                  slidesPerView: 2,
+                  spaceBetween: 20,
+                },
+              },
+            });
+          } else if (!isMobile && statsSwiper) {
+            statsSwiper.destroy(true, true);
+            statsSwiper = undefined;
+            statsContainer.innerHTML = originalStatsHTML;
+            statsContainer.classList.remove("swiper-container", "stats-slider");
+          }
+        };
+
+        window.addEventListener("resize", statsSliderHandler);
+        statsSliderHandler();
+      });
+    </script>
+    <script>
+      $(document).ready(function () {
+        $('a[href^="#"]').on("click", function (event) {
+          var target = $(this.getAttribute("href"));
+          if (target.length) {
+            event.preventDefault();
+            $("html, body").stop().animate(
+              {
+                scrollTop: target.offset().top,
+              },
+              800
+            );
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
